@@ -25,6 +25,8 @@
 		69525CD01336B88800C433C3 /* CHCSVSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CC91336B88800C433C3 /* CHCSVSupport.m */; };
 		69525CD11336B88800C433C3 /* NSArray+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CCB1336B88800C433C3 /* NSArray+CHCSVAdditions.m */; };
 		69525CD21336B88800C433C3 /* NSString+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */; };
+		69525CD71336B95B00C433C3 /* Magnifier.png in Resources */ = {isa = PBXBuildFile; fileRef = 69525CD51336B95B00C433C3 /* Magnifier.png */; };
+		69525CD91336BDE700C433C3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69525CD81336BDE700C433C3 /* Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		69525CCB1336B88800C433C3 /* NSArray+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CHCSVAdditions.m"; sourceTree = "<group>"; };
 		69525CCC1336B88800C433C3 /* NSString+CHCSVAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CHCSVAdditions.h"; sourceTree = "<group>"; };
 		69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHCSVAdditions.m"; sourceTree = "<group>"; };
+		69525CD51336B95B00C433C3 /* Magnifier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Magnifier.png; sourceTree = "<group>"; };
+		69525CD81336BDE700C433C3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 		69525C821336B73B00C433C3 /* Localizate */ = {
 			isa = PBXGroup;
 			children = (
+				69525CD31336B92800C433C3 /* Images */,
 				69525CBE1336B86800C433C3 /* Libs */,
 				69525C8E1336B73C00C433C3 /* LocalizateAppDelegate.h */,
 				69525C8F1336B73C00C433C3 /* LocalizateAppDelegate.m */,
@@ -210,6 +215,15 @@
 				69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */,
 			);
 			name = CHCSV;
+			sourceTree = "<group>";
+		};
+		69525CD31336B92800C433C3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				69525CD81336BDE700C433C3 /* Icon.png */,
+				69525CD51336B95B00C433C3 /* Magnifier.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +300,8 @@
 				69525C8D1336B73C00C433C3 /* Credits.rtf in Resources */,
 				69525CB11336B78000C433C3 /* MainMenu.xib in Resources */,
 				69525CB71336B7C000C433C3 /* Localizable.strings in Resources */,
+				69525CD71336B95B00C433C3 /* Magnifier.png in Resources */,
+				69525CD91336BDE700C433C3 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: jordi dosne";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -413,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: jordi dosne";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
