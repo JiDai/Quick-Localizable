@@ -1,0 +1,31 @@
+/* 
+ Localizable.strings
+ LProjGenerator
+ 
+ Created by Jordi Dosne on 18/03/11.
+ Copyright 2011 Quadupède. All rights reserved.
+ */
+
+
+"lbl_drop_here" = "Drop a CSV file here";
+"lbl_path" = "Path of the input file";
+"lbl_nb_rows" = "Total of rows";
+"lbl_nb_vars" = "Total of strings";
+"lbl_nb_comments" = "Total of comments";
+"lbl_nb_languages" = "Total of locale";
+"lbl_size" = "Size of file";
+"lbl_no_file" = "No file is selected";
+"lbl_option_comment" = " Include comments";
+"lbl_option_comment_info" = "Comments will be created with first cells of rows begin by # or //";
+"lbl_option_create_folders" = " Create folder if not exist";
+"lbl_option_create_folders_info" = "If checked, locale folder will be created if localized data was found.";
+
+"choose_output_directory" = "Choose output folder";
+"job_done" = "Job done!";
+
+"err_file_type" = "Please specify a CSV file";
+"err_unable_creating_files" = "Unable to create files. Check the output path.";
+
+"lbl_yes" = "Yes";
+"lbl_no" = "No";
+

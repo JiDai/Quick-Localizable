@@ -1,0 +1,30 @@
+/* 
+ Localizable.strings
+ LProjGenerator
+ 
+ Created by Jordi Dosne on 18/03/11.
+ Copyright 2011 Quadupède. All rights reserved.
+ */
+
+
+"lbl_drop_here" = "Glisssez un fichier ici";
+"lbl_path" = "Chemin du fichier";
+"lbl_nb_rows" = "Nombe de lignes";
+"lbl_nb_vars" = "Nombre de chaines";
+"lbl_nb_comments" = "Nombre de commentaires";
+"lbl_nb_languages" = "Nombre de langues";
+"lbl_size" = "Taille du fichier";
+"lbl_no_file" = "Aucun fichier selectionné";
+"lbl_option_comment" = " Inclure les commentaires";
+"lbl_option_comment_info" = "Des commentaires seront ajoutés si la première cellule d'une ligne commence par # ou //";
+"lbl_option_create_folders" = " Créer les dossiers de locale";
+"lbl_option_create_folders_info" = "Si coché, des dossiers de locales seront créés automatiquement, sinon aucun fichier ne sera créé.";
+
+"choose_output_directory" = "Choisissez un dossier de sortie";
+"job_done" = "Terminé!";
+
+"err_file_type" = "Merci de fournir un fichier type CSV";
+"err_unable_creating_files" = "Impossible de créer le fichier. Vérifier le chemin de sortie.";
+
+"lbl_yes" = "Oui";
+"lbl_no" = "Non";

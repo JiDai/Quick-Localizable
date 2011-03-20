@@ -12,11 +12,19 @@
 		69525C8A1336B73C00C433C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525C891336B73C00C433C3 /* main.m */; };
 		69525C8D1336B73C00C433C3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 69525C8B1336B73C00C433C3 /* Credits.rtf */; };
 		69525C901336B73C00C433C3 /* LocalizateAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525C8F1336B73C00C433C3 /* LocalizateAppDelegate.m */; };
-		69525C931336B73C00C433C3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69525C911336B73C00C433C3 /* MainMenu.xib */; };
 		69525C9A1336B73C00C433C3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69525C7C1336B73B00C433C3 /* Cocoa.framework */; };
 		69525CA21336B73C00C433C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69525CA01336B73C00C433C3 /* InfoPlist.strings */; };
 		69525CA51336B73C00C433C3 /* LocalizateTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 69525CA41336B73C00C433C3 /* LocalizateTests.h */; };
 		69525CA71336B73C00C433C3 /* LocalizateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CA61336B73C00C433C3 /* LocalizateTests.m */; };
+		69525CB11336B78000C433C3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69525CB01336B78000C433C3 /* MainMenu.xib */; };
+		69525CB41336B78F00C433C3 /* JDDropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CB31336B78F00C433C3 /* JDDropBox.m */; };
+		69525CB71336B7C000C433C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69525CB91336B7C000C433C3 /* Localizable.strings */; };
+		69525CC11336B87500C433C3 /* JDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CC01336B87500C433C3 /* JDUtils.m */; };
+		69525CCE1336B88800C433C3 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CC51336B88800C433C3 /* CHCSVParser.m */; };
+		69525CCF1336B88800C433C3 /* CHCSVWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CC71336B88800C433C3 /* CHCSVWriter.m */; };
+		69525CD01336B88800C433C3 /* CHCSVSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CC91336B88800C433C3 /* CHCSVSupport.m */; };
+		69525CD11336B88800C433C3 /* NSArray+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CCB1336B88800C433C3 /* NSArray+CHCSVAdditions.m */; };
+		69525CD21336B88800C433C3 /* NSString+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +43,40 @@
 		69525C7F1336B73B00C433C3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		69525C801336B73B00C433C3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		69525C811336B73B00C433C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		69525C841336B73C00C433C3 /* Localizate-Info.plist */ = {isa = PBXFileReference; path = "Localizate-Info.plist"; sourceTree = "<group>"; };
+		69525C841336B73C00C433C3 /* Localizate-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Localizate-Info.plist"; sourceTree = "<group>"; };
 		69525C861336B73C00C433C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		69525C881336B73C00C433C3 /* Localizate-Prefix.pch */ = {isa = PBXFileReference; path = "Localizate-Prefix.pch"; sourceTree = "<group>"; };
+		69525C881336B73C00C433C3 /* Localizate-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Localizate-Prefix.pch"; sourceTree = "<group>"; };
 		69525C891336B73C00C433C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		69525C8C1336B73C00C433C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		69525C8E1336B73C00C433C3 /* LocalizateAppDelegate.h */ = {isa = PBXFileReference; path = LocalizateAppDelegate.h; sourceTree = "<group>"; };
+		69525C8E1336B73C00C433C3 /* LocalizateAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizateAppDelegate.h; sourceTree = "<group>"; };
 		69525C8F1336B73C00C433C3 /* LocalizateAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizateAppDelegate.m; sourceTree = "<group>"; };
-		69525C921336B73C00C433C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		69525C991336B73C00C433C3 /* LocalizateTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalizateTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		69525C9F1336B73C00C433C3 /* LocalizateTests-Info.plist */ = {isa = PBXFileReference; path = "LocalizateTests-Info.plist"; sourceTree = "<group>"; };
+		69525C9F1336B73C00C433C3 /* LocalizateTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LocalizateTests-Info.plist"; sourceTree = "<group>"; };
 		69525CA11336B73C00C433C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		69525CA31336B73C00C433C3 /* LocalizateTests-Prefix.pch */ = {isa = PBXFileReference; path = "LocalizateTests-Prefix.pch"; sourceTree = "<group>"; };
+		69525CA31336B73C00C433C3 /* LocalizateTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocalizateTests-Prefix.pch"; sourceTree = "<group>"; };
 		69525CA41336B73C00C433C3 /* LocalizateTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizateTests.h; sourceTree = "<group>"; };
 		69525CA61336B73C00C433C3 /* LocalizateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizateTests.m; sourceTree = "<group>"; };
+		69525CB01336B78000C433C3 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		69525CB21336B78F00C433C3 /* JDDropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDDropBox.h; sourceTree = "<group>"; };
+		69525CB31336B78F00C433C3 /* JDDropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDDropBox.m; sourceTree = "<group>"; };
+		69525CB81336B7C000C433C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		69525CBA1336B7D200C433C3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = /Users/jd/Dropbox/JDWork/CocoaWorkspace/Localizate/LocalizateTests/fr.lproj/InfoPlist.strings; sourceTree = "<absolute>"; };
+		69525CBB1336B7D300C433C3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = fr; path = /Users/jd/Dropbox/JDWork/CocoaWorkspace/Localizate/Localizate/fr.lproj/Credits.rtf; sourceTree = "<absolute>"; };
+		69525CBC1336B7D300C433C3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = /Users/jd/Dropbox/JDWork/CocoaWorkspace/Localizate/Localizate/fr.lproj/Localizable.strings; sourceTree = "<absolute>"; };
+		69525CBD1336B7D300C433C3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = /Users/jd/Dropbox/JDWork/CocoaWorkspace/Localizate/Localizate/fr.lproj/InfoPlist.strings; sourceTree = "<absolute>"; };
+		69525CBF1336B87500C433C3 /* JDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDUtils.h; sourceTree = "<group>"; };
+		69525CC01336B87500C433C3 /* JDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDUtils.m; sourceTree = "<group>"; };
+		69525CC31336B88800C433C3 /* CHCSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSV.h; sourceTree = "<group>"; };
+		69525CC41336B88800C433C3 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		69525CC51336B88800C433C3 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		69525CC61336B88800C433C3 /* CHCSVWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVWriter.h; sourceTree = "<group>"; };
+		69525CC71336B88800C433C3 /* CHCSVWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVWriter.m; sourceTree = "<group>"; };
+		69525CC81336B88800C433C3 /* CHCSVSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVSupport.h; sourceTree = "<group>"; };
+		69525CC91336B88800C433C3 /* CHCSVSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVSupport.m; sourceTree = "<group>"; };
+		69525CCA1336B88800C433C3 /* NSArray+CHCSVAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CHCSVAdditions.h"; sourceTree = "<group>"; };
+		69525CCB1336B88800C433C3 /* NSArray+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CHCSVAdditions.m"; sourceTree = "<group>"; };
+		69525CCC1336B88800C433C3 /* NSString+CHCSVAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CHCSVAdditions.h"; sourceTree = "<group>"; };
+		69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHCSVAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +140,12 @@
 		69525C821336B73B00C433C3 /* Localizate */ = {
 			isa = PBXGroup;
 			children = (
+				69525CBE1336B86800C433C3 /* Libs */,
 				69525C8E1336B73C00C433C3 /* LocalizateAppDelegate.h */,
 				69525C8F1336B73C00C433C3 /* LocalizateAppDelegate.m */,
-				69525C911336B73C00C433C3 /* MainMenu.xib */,
+				69525CB01336B78000C433C3 /* MainMenu.xib */,
+				69525CB21336B78F00C433C3 /* JDDropBox.h */,
+				69525CB31336B78F00C433C3 /* JDDropBox.m */,
 				69525C831336B73C00C433C3 /* Supporting Files */,
 			);
 			path = Localizate;
@@ -123,6 +154,7 @@
 		69525C831336B73C00C433C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				69525CB91336B7C000C433C3 /* Localizable.strings */,
 				69525C841336B73C00C433C3 /* Localizate-Info.plist */,
 				69525C851336B73C00C433C3 /* InfoPlist.strings */,
 				69525C881336B73C00C433C3 /* Localizate-Prefix.pch */,
@@ -150,6 +182,34 @@
 				69525CA31336B73C00C433C3 /* LocalizateTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69525CBE1336B86800C433C3 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				69525CC21336B87A00C433C3 /* CHCSV */,
+				69525CBF1336B87500C433C3 /* JDUtils.h */,
+				69525CC01336B87500C433C3 /* JDUtils.m */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		69525CC21336B87A00C433C3 /* CHCSV */ = {
+			isa = PBXGroup;
+			children = (
+				69525CC31336B88800C433C3 /* CHCSV.h */,
+				69525CC41336B88800C433C3 /* CHCSVParser.h */,
+				69525CC51336B88800C433C3 /* CHCSVParser.m */,
+				69525CC61336B88800C433C3 /* CHCSVWriter.h */,
+				69525CC71336B88800C433C3 /* CHCSVWriter.m */,
+				69525CC81336B88800C433C3 /* CHCSVSupport.h */,
+				69525CC91336B88800C433C3 /* CHCSVSupport.m */,
+				69525CCA1336B88800C433C3 /* NSArray+CHCSVAdditions.h */,
+				69525CCB1336B88800C433C3 /* NSArray+CHCSVAdditions.m */,
+				69525CCC1336B88800C433C3 /* NSString+CHCSVAdditions.h */,
+				69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */,
+			);
+			name = CHCSV;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +257,7 @@
 		69525C6F1336B73B00C433C3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				ORGANIZATIONNAME = "Quadupède";
+				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 69525C721336B73B00C433C3 /* Build configuration list for PBXProject "Localizate" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -224,7 +284,8 @@
 			files = (
 				69525C871336B73C00C433C3 /* InfoPlist.strings in Resources */,
 				69525C8D1336B73C00C433C3 /* Credits.rtf in Resources */,
-				69525C931336B73C00C433C3 /* MainMenu.xib in Resources */,
+				69525CB11336B78000C433C3 /* MainMenu.xib in Resources */,
+				69525CB71336B7C000C433C3 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +323,13 @@
 			files = (
 				69525C8A1336B73C00C433C3 /* main.m in Sources */,
 				69525C901336B73C00C433C3 /* LocalizateAppDelegate.m in Sources */,
+				69525CB41336B78F00C433C3 /* JDDropBox.m in Sources */,
+				69525CC11336B87500C433C3 /* JDUtils.m in Sources */,
+				69525CCE1336B88800C433C3 /* CHCSVParser.m in Sources */,
+				69525CCF1336B88800C433C3 /* CHCSVWriter.m in Sources */,
+				69525CD01336B88800C433C3 /* CHCSVSupport.m in Sources */,
+				69525CD11336B88800C433C3 /* NSArray+CHCSVAdditions.m in Sources */,
+				69525CD21336B88800C433C3 /* NSString+CHCSVAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +356,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				69525C861336B73C00C433C3 /* en */,
+				69525CBD1336B7D300C433C3 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -296,24 +365,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				69525C8C1336B73C00C433C3 /* en */,
+				69525CBB1336B7D300C433C3 /* fr */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		69525C911336B73C00C433C3 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				69525C921336B73C00C433C3 /* en */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 		69525CA01336B73C00C433C3 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				69525CA11336B73C00C433C3 /* en */,
+				69525CBA1336B7D200C433C3 /* fr */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		69525CB91336B7C000C433C3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69525CB81336B7C000C433C3 /* en */,
+				69525CBC1336B7D300C433C3 /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
