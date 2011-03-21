@@ -37,7 +37,7 @@
 
 + (NSString *)round:(float)f decimals:(int)d
 {
-	NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+	NSNumberFormatter *numberFormatter = [[[NSNumberFormatter alloc] init] autorelease];
 	[numberFormatter setMaximumFractionDigits:d];
 	[numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
 	NSLog(@"[numberFormatter stringFromNumber:[NSNumber numberWithFloat:f]] = %@", [numberFormatter stringFromNumber:[NSNumber numberWithFloat:f]]);

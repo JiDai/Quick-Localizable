@@ -28,6 +28,7 @@
 	IBOutlet NSTextField *parseCommentLabel;
 	IBOutlet NSTextField *createFoldersLabel;
 	IBOutlet NSButton *generateButton;
+	IBOutlet NSButton *chooseFolderButton;
 	
 	NSMutableString *contentOfGeneratedFile;
 	NSString *outputDirectoryPath;
@@ -51,6 +52,7 @@
 @property (nonatomic, retain)  IBOutlet NSTextField *parseCommentLabel;
 @property (nonatomic, retain)  IBOutlet NSTextField *createFoldersLabel;
 @property (nonatomic, retain) IBOutlet NSButton *generateButton;
+@property (nonatomic, retain)  IBOutlet NSButton *chooseFolderButton;
 
 - (IBAction)generate:(id)sender;
 - (IBAction)chooseOutputDirectory:(id)sender;

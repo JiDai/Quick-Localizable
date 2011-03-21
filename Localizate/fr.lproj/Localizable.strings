@@ -7,7 +7,7 @@
  */
 
 
-"lbl_drop_here" = "Glisssez un fichier ici";
+"lbl_drop_here" = "Glissez un fichier ici";
 "lbl_path" = "Chemin du fichier";
 "lbl_nb_rows" = "Nombe de lignes";
 "lbl_nb_vars" = "Nombre de chaines";
@@ -19,6 +19,7 @@
 "lbl_option_comment_info" = "Des commentaires seront ajoutés si la première cellule d'une ligne commence par # ou //";
 "lbl_option_create_folders" = " Créer les dossiers de locale";
 "lbl_option_create_folders_info" = "Si coché, des dossiers de locales seront créés automatiquement, sinon aucun fichier ne sera créé.";
+"lbl_generate" = "Générer!";
 
 "choose_output_directory" = "Choisissez un dossier de sortie";
 "job_done" = "Terminé!";

@@ -19,6 +19,7 @@
 "lbl_option_comment_info" = "Comments will be created with first cells of rows begin by # or //";
 "lbl_option_create_folders" = " Create folder if not exist";
 "lbl_option_create_folders_info" = "If checked, locale folder will be created if localized data was found.";
+"lbl_generate" = "Generate!";
 
 "choose_output_directory" = "Choose output folder";
 "job_done" = "Job done!";

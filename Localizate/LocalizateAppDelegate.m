@@ -26,6 +26,7 @@
 @synthesize parseCommentLabel;
 @synthesize createFoldersLabel;
 @synthesize generateButton;
+@synthesize chooseFolderButton;
 
 @synthesize window;
 
@@ -35,7 +36,7 @@
 	dropBox.delegate = self;
 	[window setDelegate:self]; 
 	
-	[self.dropBox setTitleWithMnemonic:NSLocalizedString(@"lbl_drop_here", @"")];
+	[self.dropBox setTitle:NSLocalizedString(@"lbl_drop_here", @"")];
 	[self.pathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_path", @"")];
 	[self.nbRowsNameLabel setTitleWithMnemonic:NSLocalizedString(@"lbl_nb_rows", @"")];
 	[self.nbLanguagesNameLabel setTitleWithMnemonic:NSLocalizedString(@"lbl_nb_languages", @"")];
@@ -44,6 +45,8 @@
 	[self.createFoldersCheckBox setTitleWithMnemonic:NSLocalizedString(@"lbl_option_create_folders", @"")];
 	[self.parseCommentLabel setTitleWithMnemonic:NSLocalizedString(@"lbl_option_comment_info", @"")];
 	[self.createFoldersLabel setTitleWithMnemonic:NSLocalizedString(@"lbl_option_create_folders_info", @"")];
+	[self.chooseFolderButton setTitleWithMnemonic:NSLocalizedString(@"choose_output_directory", @"")];
+	[self.generateButton setTitleWithMnemonic:NSLocalizedString(@"lbl_generate", @"")];
 	[generateButton setEnabled:NO];
 }
 
@@ -182,7 +185,7 @@
 	if (error)
 	{
 		NSLog(@"error = %@", error);
-		NSAlert *alert = [[NSAlert alloc] init];
+		NSAlert *alert = [[[NSAlert alloc] init] autorelease];
 		[alert addButtonWithTitle:@"OK"];
 		[alert setInformativeText:NSLocalizedString(@"err_unable_creating_files", @"")];
 		[alert setAlertStyle:NSWarningAlertStyle];
@@ -191,7 +194,7 @@
 	else
 	{
 		
-		NSAlert *alert = [[NSAlert alloc] init];
+		NSAlert *alert = [[[NSAlert alloc] init] autorelease];
 		[alert addButtonWithTitle:@"OK"];
 		[alert setMessageText:NSLocalizedString(@"job_done", @"")];
 		[alert setInformativeText:[NSString stringWithFormat:@"%@ : %d\n%@ : %d\n%@ : %d\n", 
@@ -283,7 +286,7 @@
 	NSLog(@"parser started: %@", csvFile);
 }
 - (void) parser:(CHCSVParser *)parser didStartLine:(NSUInteger)lineNumber {
-	NSLog(@"Starting line: %lu", lineNumber);
+	NSLog(@"Starting line: %ld", lineNumber);
 }
 - (void) parser:(CHCSVParser *)parser didReadField:(NSString *)field {
 	NSLog(@"   field: %@", field);

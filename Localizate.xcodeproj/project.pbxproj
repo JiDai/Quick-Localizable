@@ -16,7 +16,6 @@
 		69525CA21336B73C00C433C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69525CA01336B73C00C433C3 /* InfoPlist.strings */; };
 		69525CA51336B73C00C433C3 /* LocalizateTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 69525CA41336B73C00C433C3 /* LocalizateTests.h */; };
 		69525CA71336B73C00C433C3 /* LocalizateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CA61336B73C00C433C3 /* LocalizateTests.m */; };
-		69525CB11336B78000C433C3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69525CB01336B78000C433C3 /* MainMenu.xib */; };
 		69525CB41336B78F00C433C3 /* JDDropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CB31336B78F00C433C3 /* JDDropBox.m */; };
 		69525CB71336B7C000C433C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69525CB91336B7C000C433C3 /* Localizable.strings */; };
 		69525CC11336B87500C433C3 /* JDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CC01336B87500C433C3 /* JDUtils.m */; };
@@ -27,6 +26,7 @@
 		69525CD21336B88800C433C3 /* NSString+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */; };
 		69525CD71336B95B00C433C3 /* Magnifier.png in Resources */ = {isa = PBXBuildFile; fileRef = 69525CD51336B95B00C433C3 /* Magnifier.png */; };
 		69525CD91336BDE700C433C3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69525CD81336BDE700C433C3 /* Icon.png */; };
+		69868BE91337DFCC00DE9584 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69868BEB1337DFCC00DE9584 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,6 @@
 		69525CA31336B73C00C433C3 /* LocalizateTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocalizateTests-Prefix.pch"; sourceTree = "<group>"; };
 		69525CA41336B73C00C433C3 /* LocalizateTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizateTests.h; sourceTree = "<group>"; };
 		69525CA61336B73C00C433C3 /* LocalizateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizateTests.m; sourceTree = "<group>"; };
-		69525CB01336B78000C433C3 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		69525CB21336B78F00C433C3 /* JDDropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDDropBox.h; sourceTree = "<group>"; };
 		69525CB31336B78F00C433C3 /* JDDropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDDropBox.m; sourceTree = "<group>"; };
 		69525CB81336B7C000C433C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -81,6 +80,8 @@
 		69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHCSVAdditions.m"; sourceTree = "<group>"; };
 		69525CD51336B95B00C433C3 /* Magnifier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Magnifier.png; sourceTree = "<group>"; };
 		69525CD81336BDE700C433C3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		69868BEA1337DFCC00DE9584 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		69868BED1337DFD400DE9584 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +149,7 @@
 				69525CBE1336B86800C433C3 /* Libs */,
 				69525C8E1336B73C00C433C3 /* LocalizateAppDelegate.h */,
 				69525C8F1336B73C00C433C3 /* LocalizateAppDelegate.m */,
-				69525CB01336B78000C433C3 /* MainMenu.xib */,
+				69868BEB1337DFCC00DE9584 /* MainMenu.xib */,
 				69525CB21336B78F00C433C3 /* JDDropBox.h */,
 				69525CB31336B78F00C433C3 /* JDDropBox.m */,
 				69525C831336B73C00C433C3 /* Supporting Files */,
@@ -279,6 +280,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 			);
 			mainGroup = 69525C6D1336B73B00C433C3;
 			productRefGroup = 69525C791336B73B00C433C3 /* Products */;
@@ -298,7 +300,7 @@
 			files = (
 				69525C871336B73C00C433C3 /* InfoPlist.strings in Resources */,
 				69525C8D1336B73C00C433C3 /* Credits.rtf in Resources */,
-				69525CB11336B78000C433C3 /* MainMenu.xib in Resources */,
+				69868BE91337DFCC00DE9584 /* MainMenu.xib in Resources */,
 				69525CB71336B7C000C433C3 /* Localizable.strings in Resources */,
 				69525CD71336B95B00C433C3 /* Magnifier.png in Resources */,
 				69525CD91336BDE700C433C3 /* Icon.png in Resources */,
@@ -404,6 +406,15 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		69868BEB1337DFCC00DE9584 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69868BEA1337DFCC00DE9584 /* en */,
+				69868BED1337DFD400DE9584 /* fr */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -412,6 +423,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: jordi dosne";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -431,12 +443,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: jordi dosne";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -534,6 +548,7 @@
 				69525CAC1336B73C00C433C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69525CAD1336B73C00C433C3 /* Build configuration list for PBXNativeTarget "LocalizateTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +557,7 @@
 				69525CAF1336B73C00C433C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
