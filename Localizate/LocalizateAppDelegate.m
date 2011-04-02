@@ -130,35 +130,37 @@
 				{
 					NSArray *row = [[rowsOfCSV objectAtIndex:i] retain];
 					double nbFields = [row count];
-					
-					if (nbFields >= 1)
+					if( ![[row objectAtIndex:0] isEqualToString:@""])
 					{
-						NSString *firstCell = [row objectAtIndex:0];
-						
-						if ([[firstCell substringToIndex:1] isEqualToString:@"#"] && [firstCell length] > 1 && [parseCommentCheckBox state])
+						if (nbFields >= 1)
 						{
-							// Is a comment
-							[contentOfGeneratedFile appendFormat:@"\n/*\n * %@\n */\n", [firstCell substringFromIndex:1]];
-							nbComments++;
-						}
-						else if ([[firstCell substringToIndex:2] isEqualToString:@"//"] && [firstCell length] > 2 && [parseCommentCheckBox state])
-						{
-							// Is a comment too
-							[contentOfGeneratedFile appendFormat:@"\n/*\n * %@\n */\n", [firstCell substringFromIndex:2]];
-							nbComments++;
-						}
-						else if (![firstCell isEqualToString:@""] && nbFields > 1)
-						{
-							// Get locale data
-							NSString *localizableCell = [row objectAtIndex:l];
-							[contentOfGeneratedFile appendFormat:@"\"%@\" = \"%@\";\n", firstCell, localizableCell];
-							nbVars++;
-							NSLog(@"nbVars = %d", nbVars);
-						}
-						else
-						{
-							NSLog(@"No data for row");
-						}
+							NSString *firstCell = [row objectAtIndex:0];
+							
+							if ([[firstCell substringToIndex:1] isEqualToString:@"#"] && [firstCell length] > 1 && [parseCommentCheckBox state])
+							{
+								// Is a comment
+								[contentOfGeneratedFile appendFormat:@"\n/*\n * %@\n */\n", [firstCell substringFromIndex:1]];
+								nbComments++;
+							}
+							else if ([[firstCell substringToIndex:2] isEqualToString:@"//"] && [firstCell length] > 2 && [parseCommentCheckBox state])
+							{
+								// Is a comment too
+								[contentOfGeneratedFile appendFormat:@"\n/*\n * %@\n */\n", [firstCell substringFromIndex:2]];
+								nbComments++;
+							}
+							else if (![firstCell isEqualToString:@""] && nbFields > 1)
+							{
+								// Get locale data
+								NSString *localizableCell = [row objectAtIndex:l];
+								[contentOfGeneratedFile appendFormat:@"\"%@\" = \"%@\";\n", firstCell, localizableCell];
+								nbVars++;
+								NSLog(@"nbVars = %d", nbVars);
+							}
+							else
+							{
+								NSLog(@"No data for row");
+							}
+						}	
 					}
 					[row release];
 				}
@@ -286,13 +288,13 @@
 	NSLog(@"parser started: %@", csvFile);
 }
 - (void) parser:(CHCSVParser *)parser didStartLine:(NSUInteger)lineNumber {
-	NSLog(@"Starting line: %ld", lineNumber);
+	NSLog(@"Starting line: %u", lineNumber);
 }
 - (void) parser:(CHCSVParser *)parser didReadField:(NSString *)field {
 	NSLog(@"   field: %@", field);
 }
 - (void) parser:(CHCSVParser *)parser didEndLine:(NSUInteger)lineNumber {
-	NSLog(@"Ending line: %lu", lineNumber);
+	NSLog(@"Ending line: %u", lineNumber);
 }
 - (void) parser:(CHCSVParser *)parser didEndDocument:(NSString *)csvFile {
 	NSLog(@"parser ended: %@", csvFile);
