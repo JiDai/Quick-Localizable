@@ -1,12 +1,10 @@
 /* 
- Localizable.strings
- LProjGenerator
- 
- Created by Jordi Dosne on 18/03/11.
- Copyright 2011 Quadupède. All rights reserved.
- */
+  Localizable.strings
+  Quick Localizable
 
-
+  Created by Jordi Dosne on 28/04/11.
+  Copyright 2011 Quadupède. All rights reserved.
+*/
 "lbl_drop_here" = "Drop a CSV file here";
 "lbl_path" = "Path of the input file";
 "lbl_nb_rows" = "Total of rows";
@@ -29,4 +27,3 @@
 
 "lbl_yes" = "Yes";
 "lbl_no" = "No";
-

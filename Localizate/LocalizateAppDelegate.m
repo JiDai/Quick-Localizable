@@ -50,10 +50,10 @@
 	[generateButton setEnabled:NO];
 }
 
-- (void)launchParsing
+- (void)launchParsing:(NSString *)path
 {
 	NSStringEncoding encoding = 0;
-	CHCSVParser * p = [[CHCSVParser alloc] initWithContentsOfCSVFile:dropBox.capturedPath usedEncoding:&encoding error:nil];
+	CHCSVParser * p = [[CHCSVParser alloc] initWithContentsOfCSVFile:path usedEncoding:&encoding error:nil];
 	
 	[p setParserDelegate:self];
 	[p parse];
@@ -77,8 +77,33 @@
 	
 }
 
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename
+{
+	[self launchParsing:filename];
+	return YES;
+}
+
 #pragma mark - Action
 
+- (void)openDoc:(id)sender
+{
+	int result;
+	NSArray *fileTypes = [NSArray arrayWithObjects: @"txt", @"csv",
+                        NSFileTypeForHFSTypeCode( 'TEXT' ), nil];
+	NSOpenPanel *oPanel = [NSOpenPanel openPanel];
+	
+	[oPanel setAllowsMultipleSelection:YES];
+	result = [oPanel runModalForDirectory:NSHomeDirectory()
+												file:nil types:fileTypes];
+	if (result == NSOKButton) {
+		NSArray *filesToOpen = [oPanel filenames];
+		int i, count = [filesToOpen count];
+		for (i=0; i<count; i++) {
+			NSString *aFile = [filesToOpen objectAtIndex:i];
+			[self launchParsing:aFile];
+		}
+	}
+}
 
 - (IBAction)chooseOutputDirectory:(id)sender
 {
@@ -275,7 +300,7 @@
 	{
 		[generateButton setEnabled:YES];
 		[self showInfo];
-		[self launchParsing];
+		[self launchParsing:dropBox.capturedPath];
 	}
 	else
 		[self showWarnAlerWithMessage:NSLocalizedString(@"err_file_type", @"")];

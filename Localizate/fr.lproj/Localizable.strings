@@ -1,12 +1,10 @@
 /* 
- Localizable.strings
- LProjGenerator
- 
- Created by Jordi Dosne on 18/03/11.
- Copyright 2011 Quadupède. All rights reserved.
- */
+  Localizable.strings
+  Quick Localizable
 
-
+  Created by Jordi Dosne on 28/04/11.
+  Copyright 2011 Quadupède. All rights reserved.
+*/
 "lbl_drop_here" = "Glissez un fichier ici";
 "lbl_path" = "Chemin du fichier";
 "lbl_nb_rows" = "Nombe de lignes";

@@ -59,7 +59,7 @@
 - (IBAction)revealInFinder:(id)sender;
 - (void)showInfo;
 - (void)hideInfo;
-- (void)launchParsing;
+- (void)launchParsing:(NSString *)path;
 - (void)showWarnAlerWithMessage:(NSString *)message;
 
 @end
