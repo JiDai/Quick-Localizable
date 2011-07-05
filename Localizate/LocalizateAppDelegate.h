@@ -13,6 +13,8 @@
 @interface LocalizateAppDelegate : NSObject <NSApplicationDelegate, JDDropBoxDelegate, CHCSVParserDelegate, NSOpenSavePanelDelegate, NSWindowDelegate> {
 @private
 	NSWindow *window;
+	
+	/* Generate strings */
 	IBOutlet JDDropBox *dropBox;
 	IBOutlet NSTextField *pathNameTextField;
 	IBOutlet NSTextField *pathValueTextField;
@@ -29,6 +31,13 @@
 	IBOutlet NSTextField *createFoldersLabel;
 	IBOutlet NSButton *generateButton;
 	IBOutlet NSButton *chooseFolderButton;
+	
+	/* Generate CSV */
+	IBOutlet JDDropBox *dropBoxFolder;
+	IBOutlet NSTextField *folderPathNameTextField;
+	IBOutlet NSTextField *folderPathValueTextField;
+	NSMutableArray *mFiles;
+	
 	
 	NSMutableString *contentOfGeneratedFile;
 	NSString *outputDirectoryPath;
@@ -54,12 +63,20 @@
 @property (nonatomic, retain) IBOutlet NSButton *generateButton;
 @property (nonatomic, retain)  IBOutlet NSButton *chooseFolderButton;
 
+@property (nonatomic, retain)  IBOutlet JDDropBox *dropBoxFolder;
+@property (nonatomic, retain)  IBOutlet NSTextField *folderPathNameTextField;
+@property (nonatomic, retain)  IBOutlet NSTextField *folderPathValueTextField;
+
+
+- (void)parseDirectoryRecursively:(NSString *)path;
+
+- (void)launchParsing:(NSString *)path;
 - (IBAction)generate:(id)sender;
 - (IBAction)chooseOutputDirectory:(id)sender;
 - (IBAction)revealInFinder:(id)sender;
+
 - (void)showInfo;
 - (void)hideInfo;
-- (void)launchParsing:(NSString *)path;
 - (void)showWarnAlerWithMessage:(NSString *)message;
 
 @end

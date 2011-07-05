@@ -27,6 +27,9 @@
 @synthesize createFoldersLabel;
 @synthesize generateButton;
 @synthesize chooseFolderButton;
+@synthesize dropBoxFolder;
+@synthesize folderPathNameTextField;
+@synthesize folderPathValueTextField;
 
 @synthesize window;
 
@@ -34,6 +37,7 @@
 {
 	// Insert code here to initialize your application
 	dropBox.delegate = self;
+	dropBoxFolder.delegate = self;
 	[window setDelegate:self]; 
 	
 	[self.dropBox setTitle:NSLocalizedString(@"lbl_drop_here", @"")];
@@ -49,6 +53,71 @@
 	[self.generateButton setTitleWithMnemonic:NSLocalizedString(@"lbl_generate", @"")];
 	[generateButton setEnabled:NO];
 }
+
+
+
+- (BOOL)windowShouldClose:(id)sender
+{
+	[NSApp terminate:self];
+	return NO;
+}
+
+- (void)dealloc {
+	[window release];
+	[dropBox release];
+	[pathNameTextField release];
+	[pathValueTextField release];
+	[sizeNameLabel release];
+	[sizeValueLabel release];
+	[nbRowsNameLabel release];
+	[nbRowsValueLabel release];
+	[nbLanguagesNameLabel release];
+	[nbLanguagesValueLabel release];
+	[parseCommentCheckBox release];
+	[createFoldersCheckBox release];
+	[generateButton release];
+	[outputDirectoryPath release];
+	[super dealloc];
+}
+
+
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename
+{
+	[self launchParsing:filename];
+	return YES;
+}
+
+
+#pragma mark - Generate CSV
+
+
+- (void)parseDirectoryRecursively:(NSString *)path
+{
+	NSFileManager *localFileManager = [NSFileManager defaultManager];	
+	if (mFiles) {
+		[mFiles release];
+	}
+	mFiles = [[NSMutableArray alloc] initWithCapacity:0];
+	
+	NSString *docsDir = path;
+	NSDirectoryEnumerator *dirEnum = [localFileManager enumeratorAtPath:docsDir];
+	
+	NSString *file;
+	while ((file = [dirEnum nextObject]))
+	{
+		if ([[file pathExtension] isEqualToString: @"m"])
+		{
+			[mFiles addObject:file];
+		}
+	}
+	[localFileManager release];
+	
+}
+
+
+
+#pragma mark - Generate Strings Actions
+
 
 - (void)launchParsing:(NSString *)path
 {
@@ -76,14 +145,6 @@
 	//NSLog(@"%@", rows);
 	
 }
-
-- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename
-{
-	[self launchParsing:filename];
-	return YES;
-}
-
-#pragma mark - Action
 
 - (void)openDoc:(id)sender
 {
@@ -286,24 +347,33 @@
 
 - (void)didReceiveFile:(JDDropBox *)aDropBox
 {
-	[self.pathValueTextField setTitleWithMnemonic:aDropBox.capturedPath];
-	
-	NSFileManager *filemgr = [NSFileManager defaultManager];	
-	NSError *error;
-	NSDictionary *attributes = [filemgr attributesOfItemAtPath:dropBox.capturedPath error:&error];
-	
-	
-	[self.sizeValueLabel setTitleWithMnemonic:[JDUtils getHumanReadableSize:[[attributes objectForKey:NSFileSize] floatValue]]];
-	
-	
-	if ([[dropBox.capturedPath pathExtension] isEqualToString:@"csv"])
+	if (aDropBox == dropBox)
 	{
-		[generateButton setEnabled:YES];
-		[self showInfo];
-		[self launchParsing:dropBox.capturedPath];
+		[self.pathValueTextField setTitleWithMnemonic:aDropBox.capturedPath];
+		
+		NSFileManager *filemgr = [NSFileManager defaultManager];	
+		NSError *error;
+		NSDictionary *attributes = [filemgr attributesOfItemAtPath:dropBox.capturedPath error:&error];
+		
+		
+		[self.sizeValueLabel setTitleWithMnemonic:[JDUtils getHumanReadableSize:[[attributes objectForKey:NSFileSize] floatValue]]];
+		
+		
+		if ([[dropBox.capturedPath pathExtension] isEqualToString:@"csv"])
+		{
+			[generateButton setEnabled:YES];
+			[self showInfo];
+			[self launchParsing:dropBox.capturedPath];
+		}
+		else
+			[self showWarnAlerWithMessage:NSLocalizedString(@"err_file_type", @"")];
 	}
-	else
-		[self showWarnAlerWithMessage:NSLocalizedString(@"err_file_type", @"")];
+	else if (aDropBox == dropBoxFolder)
+	{
+		[self.folderPathValueTextField setTitleWithMnemonic:aDropBox.capturedPath];
+		
+		[self parseDirectoryRecursively:aDropBox.capturedPath];
+	}
 }
 
 
@@ -328,27 +398,4 @@
 	NSLog(@"ERROR: %@", error);
 }
 
-- (BOOL)windowShouldClose:(id)sender
-{
-	[NSApp terminate:self];
-	return NO;
-}
-
-- (void)dealloc {
-	[window release];
-	[dropBox release];
-	[pathNameTextField release];
-	[pathValueTextField release];
-	[sizeNameLabel release];
-	[sizeValueLabel release];
-	[nbRowsNameLabel release];
-	[nbRowsValueLabel release];
-	[nbLanguagesNameLabel release];
-	[nbLanguagesValueLabel release];
-	[parseCommentCheckBox release];
-	[createFoldersCheckBox release];
-	[generateButton release];
-	[outputDirectoryPath release];
-	[super dealloc];
-}
 @end
