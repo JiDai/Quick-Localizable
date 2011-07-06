@@ -8,6 +8,7 @@
 
 #import "LocalizateAppDelegate.h"
 #import "JDUtils.h"
+#import "RegexKitLite.h"
 
 @implementation LocalizateAppDelegate
 
@@ -30,6 +31,8 @@
 @synthesize dropBoxFolder;
 @synthesize folderPathNameTextField;
 @synthesize folderPathValueTextField;
+@synthesize previewTableView;
+@synthesize foundOccurrences;
 
 @synthesize window;
 
@@ -91,7 +94,7 @@
 #pragma mark - Generate CSV
 
 
-- (void)parseDirectoryRecursively:(NSString *)path
+- (void)findImplementationFiles:(NSString *)path
 {
 	NSFileManager *localFileManager = [NSFileManager defaultManager];	
 	if (mFiles) {
@@ -107,11 +110,46 @@
 	{
 		if ([[file pathExtension] isEqualToString: @"m"])
 		{
-			[mFiles addObject:file];
+			[mFiles addObject:[NSString stringWithFormat:@"%@/%@", path, file]];
 		}
 	}
-	[localFileManager release];
 	
+	[localFileManager release];
+	[self parseImplementationFiles];
+}
+
+- (void)parseImplementationFiles
+{
+	if (foundOccurrences) {
+		[foundOccurrences release];
+	}
+	foundOccurrences = [[NSMutableArray alloc] initWithCapacity:0];
+	
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	for (NSString *file in mFiles)
+	{
+		NSString *contents = [[NSString alloc] initWithData:[fileManager contentsAtPath:file] encoding:NSUTF8StringEncoding];
+		NSString *regexString     = @"NSLocalizedString\\(\\s?([^\\)]+)\\s?\\)";
+
+		for(NSString *match in [contents componentsMatchedByRegex:regexString]) {
+			NSArray *c = [match componentsSeparatedByString:@"\""];
+			NSString *keyString = [c objectAtIndex:1];
+			NSString *commentString = [c objectAtIndex:3];
+
+			[ac addObject:[NSDictionary dictionaryWithObjectsAndKeys:keyString, @"key", commentString, @"comment", file, @"file", @"", @"value", nil]];
+		}		
+	}	
+}
+
+-(void)previewDataAction:(id)sender
+{
+	[self previewData];
+}
+
+- (void)previewData
+{
+	NSLog(@"foundOccurrences = %@", foundOccurrences);
+	[previewTableView reloadData];
 }
 
 
@@ -372,7 +410,7 @@
 	{
 		[self.folderPathValueTextField setTitleWithMnemonic:aDropBox.capturedPath];
 		
-		[self parseDirectoryRecursively:aDropBox.capturedPath];
+		[self findImplementationFiles:aDropBox.capturedPath];
 	}
 }
 

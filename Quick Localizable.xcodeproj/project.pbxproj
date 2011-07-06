@@ -23,6 +23,8 @@
 		69525CD21336B88800C433C3 /* NSString+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */; };
 		69525CD71336B95B00C433C3 /* Magnifier.png in Resources */ = {isa = PBXBuildFile; fileRef = 69525CD51336B95B00C433C3 /* Magnifier.png */; };
 		69525CD91336BDE700C433C3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69525CD81336BDE700C433C3 /* Icon.png */; };
+		697B425713C501A100C6BFF0 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 697B425613C501A100C6BFF0 /* RegexKitLite.m */; };
+		697B425913C502E200C6BFF0 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 697B425813C502E200C6BFF0 /* libicucore.dylib */; };
 		69868BE91337DFCC00DE9584 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69868BEB1337DFCC00DE9584 /* MainMenu.xib */; };
 		69B13357136957E50015DDA5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69B13359136957E50015DDA5 /* Localizable.strings */; };
 		69B1335D136958230015DDA5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 69B1335F136958230015DDA5 /* Credits.rtf */; };
@@ -75,6 +77,9 @@
 		69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHCSVAdditions.m"; sourceTree = "<group>"; };
 		69525CD51336B95B00C433C3 /* Magnifier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Magnifier.png; sourceTree = "<group>"; };
 		69525CD81336BDE700C433C3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		697B425513C501A100C6BFF0 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		697B425613C501A100C6BFF0 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		697B425813C502E200C6BFF0 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		69868BEA1337DFCC00DE9584 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		69868BED1337DFD400DE9584 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		69B13358136957E50015DDA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				697B425913C502E200C6BFF0 /* libicucore.dylib in Frameworks */,
 				69525C7D1336B73B00C433C3 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +114,7 @@
 		69525C6D1336B73B00C433C3 = {
 			isa = PBXGroup;
 			children = (
+				697B425813C502E200C6BFF0 /* libicucore.dylib */,
 				69B133651369594C0015DDA5 /* Icon.icns */,
 				69525C821336B73B00C433C3 /* Localizate */,
 				69525C9D1336B73C00C433C3 /* LocalizateTests */,
@@ -195,6 +202,7 @@
 		69525CBE1336B86800C433C3 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				697B425313C5018800C6BFF0 /* RegexKitLite */,
 				69525CC21336B87A00C433C3 /* CHCSV */,
 				69525CBF1336B87500C433C3 /* JDUtils.h */,
 				69525CC01336B87500C433C3 /* JDUtils.m */,
@@ -227,6 +235,15 @@
 				69525CD51336B95B00C433C3 /* Magnifier.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		697B425313C5018800C6BFF0 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				697B425513C501A100C6BFF0 /* RegexKitLite.h */,
+				697B425613C501A100C6BFF0 /* RegexKitLite.m */,
+			);
+			name = RegexKitLite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +368,7 @@
 				69525CD01336B88800C433C3 /* CHCSVSupport.m in Sources */,
 				69525CD11336B88800C433C3 /* NSArray+CHCSVAdditions.m in Sources */,
 				69525CD21336B88800C433C3 /* NSString+CHCSVAdditions.m in Sources */,
+				697B425713C501A100C6BFF0 /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

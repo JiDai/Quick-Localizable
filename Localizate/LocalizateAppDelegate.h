@@ -36,7 +36,10 @@
 	IBOutlet JDDropBox *dropBoxFolder;
 	IBOutlet NSTextField *folderPathNameTextField;
 	IBOutlet NSTextField *folderPathValueTextField;
+	IBOutlet NSTableView *previewTableView;
 	NSMutableArray *mFiles;
+	NSMutableArray *foundOccurrences;
+	IBOutlet NSArrayController *ac;
 	
 	
 	NSMutableString *contentOfGeneratedFile;
@@ -66,9 +69,14 @@
 @property (nonatomic, retain)  IBOutlet JDDropBox *dropBoxFolder;
 @property (nonatomic, retain)  IBOutlet NSTextField *folderPathNameTextField;
 @property (nonatomic, retain)  IBOutlet NSTextField *folderPathValueTextField;
+@property (nonatomic, retain)  IBOutlet NSTableView *previewTableView;
+@property (nonatomic, retain)  NSMutableArray *foundOccurrences;
 
 
-- (void)parseDirectoryRecursively:(NSString *)path;
+- (void)findImplementationFiles:(NSString *)path;
+- (void)parseImplementationFiles;
+- (IBAction)previewDataAction:(id)sender;
+- (void)previewData;
 
 - (void)launchParsing:(NSString *)path;
 - (IBAction)generate:(id)sender;
