@@ -19,6 +19,12 @@
 "lbl_option_create_folders_info" = "If checked, locale folder will be created if localized data was found.";
 "lbl_generate" = "Generate!";
 
+"lbl_folder_path" = "Path of the folder";
+"lbl_strings_path" = "Strings file found";
+"lbl_found_lg" = "Languages found";
+"lbl_export" = "Export";
+"lbl_refresh" = "Refresh";
+
 "choose_output_directory" = "Choose output folder";
 "job_done" = "Job done!";
 

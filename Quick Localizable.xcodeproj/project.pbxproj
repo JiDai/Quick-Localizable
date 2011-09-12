@@ -23,9 +23,10 @@
 		69525CD21336B88800C433C3 /* NSString+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */; };
 		69525CD71336B95B00C433C3 /* Magnifier.png in Resources */ = {isa = PBXBuildFile; fileRef = 69525CD51336B95B00C433C3 /* Magnifier.png */; };
 		69525CD91336BDE700C433C3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69525CD81336BDE700C433C3 /* Icon.png */; };
+		6958B37E141BC32500135863 /* Folder-Drop.png in Resources */ = {isa = PBXBuildFile; fileRef = 6958B37D141BC32500135863 /* Folder-Drop.png */; };
+		6958B388141E9FF800135863 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6958B389141E9FF800135863 /* MainMenu.xib */; };
 		697B425713C501A100C6BFF0 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 697B425613C501A100C6BFF0 /* RegexKitLite.m */; };
 		697B425913C502E200C6BFF0 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 697B425813C502E200C6BFF0 /* libicucore.dylib */; };
-		69868BE91337DFCC00DE9584 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69868BEB1337DFCC00DE9584 /* MainMenu.xib */; };
 		69B13357136957E50015DDA5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69B13359136957E50015DDA5 /* Localizable.strings */; };
 		69B1335D136958230015DDA5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 69B1335F136958230015DDA5 /* Credits.rtf */; };
 		69B13362136958880015DDA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69B13361136958880015DDA5 /* InfoPlist.strings */; };
@@ -77,11 +78,11 @@
 		69525CCD1336B88800C433C3 /* NSString+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHCSVAdditions.m"; sourceTree = "<group>"; };
 		69525CD51336B95B00C433C3 /* Magnifier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Magnifier.png; sourceTree = "<group>"; };
 		69525CD81336BDE700C433C3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		6958B37D141BC32500135863 /* Folder-Drop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-Drop.png"; sourceTree = "<group>"; };
+		6958B389141E9FF800135863 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		697B425513C501A100C6BFF0 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		697B425613C501A100C6BFF0 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		697B425813C502E200C6BFF0 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		69868BEA1337DFCC00DE9584 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		69868BED1337DFD400DE9584 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		69B13358136957E50015DDA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		69B1335A136957EC0015DDA5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		69B1335E136958230015DDA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
@@ -114,7 +115,6 @@
 		69525C6D1336B73B00C433C3 = {
 			isa = PBXGroup;
 			children = (
-				697B425813C502E200C6BFF0 /* libicucore.dylib */,
 				69B133651369594C0015DDA5 /* Icon.icns */,
 				69525C821336B73B00C433C3 /* Localizate */,
 				69525C9D1336B73C00C433C3 /* LocalizateTests */,
@@ -135,6 +135,7 @@
 		69525C7B1336B73B00C433C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				697B425813C502E200C6BFF0 /* libicucore.dylib */,
 				69525C7C1336B73B00C433C3 /* Cocoa.framework */,
 				69525C7E1336B73B00C433C3 /* Other Frameworks */,
 			);
@@ -158,7 +159,7 @@
 				69525CBE1336B86800C433C3 /* Libs */,
 				69525C8E1336B73C00C433C3 /* LocalizateAppDelegate.h */,
 				69525C8F1336B73C00C433C3 /* LocalizateAppDelegate.m */,
-				69868BEB1337DFCC00DE9584 /* MainMenu.xib */,
+				6958B389141E9FF800135863 /* MainMenu.xib */,
 				69525CB21336B78F00C433C3 /* JDDropBox.h */,
 				69525CB31336B78F00C433C3 /* JDDropBox.m */,
 				69525C831336B73C00C433C3 /* Supporting Files */,
@@ -231,6 +232,7 @@
 		69525CD31336B92800C433C3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6958B37D141BC32500135863 /* Folder-Drop.png */,
 				69525CD81336BDE700C433C3 /* Icon.png */,
 				69525CD51336B95B00C433C3 /* Magnifier.png */,
 			);
@@ -317,13 +319,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69868BE91337DFCC00DE9584 /* MainMenu.xib in Resources */,
+				6958B388141E9FF800135863 /* MainMenu.xib in Resources */,
 				69525CD71336B95B00C433C3 /* Magnifier.png in Resources */,
 				69525CD91336BDE700C433C3 /* Icon.png in Resources */,
 				69B13357136957E50015DDA5 /* Localizable.strings in Resources */,
 				69B1335D136958230015DDA5 /* Credits.rtf in Resources */,
 				69B13362136958880015DDA5 /* InfoPlist.strings in Resources */,
 				69B133661369594C0015DDA5 /* Icon.icns in Resources */,
+				6958B37E141BC32500135863 /* Folder-Drop.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,15 +403,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		69868BEB1337DFCC00DE9584 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				69868BEA1337DFCC00DE9584 /* en */,
-				69868BED1337DFD400DE9584 /* fr */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
 		69B13359136957E50015DDA5 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -434,7 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: jordi dosne";
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -456,7 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: jordi dosne";
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -475,6 +469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -482,6 +477,7 @@
 				GCC_PREFIX_HEADER = "Localizate/Quick Localizable-Prefix.pch";
 				INFOPLIST_FILE = "Localizate/Quick Localizable-Info.plist";
 				PRODUCT_NAME = "Quick Localizable";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				VALID_ARCHS = "x86_64 i386";
 				WRAPPER_EXTENSION = app;
@@ -492,6 +488,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -499,6 +496,7 @@
 				GCC_PREFIX_HEADER = "Localizate/Quick Localizable-Prefix.pch";
 				INFOPLIST_FILE = "Localizate/Quick Localizable-Info.plist";
 				PRODUCT_NAME = "Quick Localizable";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				VALID_ARCHS = "x86_64 i386";
 				WRAPPER_EXTENSION = app;

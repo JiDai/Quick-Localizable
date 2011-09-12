@@ -36,10 +36,19 @@
 	IBOutlet JDDropBox *dropBoxFolder;
 	IBOutlet NSTextField *folderPathNameTextField;
 	IBOutlet NSTextField *folderPathValueTextField;
+	IBOutlet NSTextField *stringsPathNameTextField;
+	IBOutlet NSTextField *stringsPathValueTextField;
+	IBOutlet NSTextField *languagesPathNameTextField;
+	IBOutlet NSTextField *languagesPathValueTextField;
 	IBOutlet NSTableView *previewTableView;
 	NSMutableArray *mFiles;
 	NSMutableArray *foundOccurrences;
+	NSMutableSet *foundLanguages;
 	IBOutlet NSArrayController *ac;
+    IBOutlet NSButton *previewDataButton;
+    IBOutlet NSButton *exportDataButton;
+    NSString *stringsPath;
+    BOOL stringsFound;
 	
 	
 	NSMutableString *contentOfGeneratedFile;
@@ -61,30 +70,44 @@
 @property (nonatomic, retain) IBOutlet NSTextField *outputDirectoryLabel;
 @property (nonatomic, retain) IBOutlet NSButton *parseCommentCheckBox;
 @property (nonatomic, retain) IBOutlet NSButton *createFoldersCheckBox;
-@property (nonatomic, retain)  IBOutlet NSTextField *parseCommentLabel;
-@property (nonatomic, retain)  IBOutlet NSTextField *createFoldersLabel;
+@property (nonatomic, retain) IBOutlet NSTextField *parseCommentLabel;
+@property (nonatomic, retain) IBOutlet NSTextField *createFoldersLabel;
 @property (nonatomic, retain) IBOutlet NSButton *generateButton;
-@property (nonatomic, retain)  IBOutlet NSButton *chooseFolderButton;
+@property (nonatomic, retain) IBOutlet NSButton *chooseFolderButton;
 
-@property (nonatomic, retain)  IBOutlet JDDropBox *dropBoxFolder;
-@property (nonatomic, retain)  IBOutlet NSTextField *folderPathNameTextField;
-@property (nonatomic, retain)  IBOutlet NSTextField *folderPathValueTextField;
-@property (nonatomic, retain)  IBOutlet NSTableView *previewTableView;
-@property (nonatomic, retain)  NSMutableArray *foundOccurrences;
+@property (nonatomic, retain) IBOutlet JDDropBox *dropBoxFolder;
+@property (nonatomic, retain) IBOutlet NSTextField *folderPathNameTextField;
+@property (nonatomic, retain) IBOutlet NSTextField *folderPathValueTextField;
+@property (nonatomic, retain) IBOutlet NSTextField *stringsPathNameTextField;
+@property (nonatomic, retain) IBOutlet NSTextField *stringsPathValueTextField;
+@property (nonatomic, retain) IBOutlet NSTextField *languagesPathNameTextField;
+@property (nonatomic, retain) IBOutlet NSTextField *languagesPathValueTextField;
+@property (nonatomic, retain) IBOutlet NSTableView *previewTableView;
+@property (nonatomic, retain) NSMutableArray *foundOccurrences;
+@property (nonatomic, retain) NSMutableSet *foundLanguages;
+@property (nonatomic, retain) IBOutlet NSButton *previewDataButton;
+@property (nonatomic, retain) IBOutlet NSButton *exportDataButton;
+@property (nonatomic, retain) NSString *stringsPath;
 
 
 - (void)findImplementationFiles:(NSString *)path;
 - (void)parseImplementationFiles;
 - (IBAction)previewDataAction:(id)sender;
 - (void)previewData;
+- (IBAction)exportCSV:(id)sender;
+- (void)exportDocument:(NSString*)name toType:(NSString*)typeUTI content:(NSString *)exportString;
 
 - (void)launchParsing:(NSString *)path;
 - (IBAction)generate:(id)sender;
 - (IBAction)chooseOutputDirectory:(id)sender;
 - (IBAction)revealInFinder:(id)sender;
 
-- (void)showInfo;
-- (void)hideInfo;
+- (void)showCSVInfo;
+- (void)hideCSVInfo;
+
+- (void)showFolderInfo;
+- (void)hideFolderInfo;
+
 - (void)showWarnAlerWithMessage:(NSString *)message;
 
 @end

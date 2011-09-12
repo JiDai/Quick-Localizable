@@ -33,6 +33,15 @@
 @synthesize folderPathValueTextField;
 @synthesize previewTableView;
 @synthesize foundOccurrences;
+@synthesize foundLanguages;
+@synthesize previewDataButton;
+@synthesize exportDataButton;
+@synthesize stringsPathNameTextField;
+@synthesize stringsPathValueTextField;
+@synthesize languagesPathNameTextField;
+@synthesize languagesPathValueTextField;
+@synthesize stringsPath;
+
 
 @synthesize window;
 
@@ -54,7 +63,16 @@
 	[self.createFoldersLabel setTitleWithMnemonic:NSLocalizedString(@"lbl_option_create_folders_info", @"")];
 	[self.chooseFolderButton setTitleWithMnemonic:NSLocalizedString(@"choose_output_directory", @"")];
 	[self.generateButton setTitleWithMnemonic:NSLocalizedString(@"lbl_generate", @"")];
-	[generateButton setEnabled:NO];
+	[self.generateButton setEnabled:NO];
+    
+	[self.folderPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_folder_path", @"")];
+	[self.stringsPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_strings_path", @"")];
+	[self.languagesPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_found_lg", @"")];
+	[self.folderPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_folder_path", @"")];
+	[self.previewDataButton setTitleWithMnemonic:NSLocalizedString(@"lbl_refresh", @"")];
+    [self.previewDataButton setEnabled:NO];
+	[self.exportDataButton setTitleWithMnemonic:NSLocalizedString(@"lbl_export", @"")];
+    [self.exportDataButton setEnabled:NO];
 }
 
 
@@ -101,19 +119,36 @@
 		[mFiles release];
 	}
 	mFiles = [[NSMutableArray alloc] initWithCapacity:0];
+	if (foundLanguages) {
+		[foundLanguages release];
+	}
+	foundLanguages = [[NSMutableSet alloc] initWithCapacity:0];
 	
 	NSString *docsDir = path;
 	NSDirectoryEnumerator *dirEnum = [localFileManager enumeratorAtPath:docsDir];
 	
 	NSString *file;
+    stringsFound = NO;
+    stringsPath = @"";
 	while ((file = [dirEnum nextObject]))
 	{
 		if ([[file pathExtension] isEqualToString: @"m"])
 		{
 			[mFiles addObject:[NSString stringWithFormat:@"%@/%@", path, file]];
 		}
+		if ([[file pathExtension] isEqualToString: @"lproj"])
+		{
+            [foundLanguages addObject:[[file lastPathComponent] stringByDeletingPathExtension]];
+		}
+		if ([[file lastPathComponent] isEqualToString: @"Localizable.strings"])
+		{
+            stringsFound = YES;
+            stringsPath = [path stringByAppendingString:file];
+            NSLog(@"stringsPath = %@", stringsPath);
+		}
 	}
-	
+	[languagesPathValueTextField setTitleWithMnemonic:[[foundLanguages allObjects] componentsJoinedByString:@", "]];
+    [stringsPathValueTextField setTitleWithMnemonic:stringsPath];
 	[localFileManager release];
 	[self parseImplementationFiles];
 }
@@ -141,17 +176,59 @@
 	}	
 }
 
--(void)previewDataAction:(id)sender
+- (void)previewDataAction:(id)sender
 {
 	[self previewData];
 }
 
 - (void)previewData
 {
-	NSLog(@"foundOccurrences = %@", foundOccurrences);
 	[previewTableView reloadData];
 }
 
+- (IBAction)exportCSV:(id)sender;
+{
+
+    NSMutableString *exportString = [[NSMutableString alloc] initWithString:@""];
+    [exportString appendFormat:@";%@\n", @"fr"];
+    for (NSDictionary *d in [ac arrangedObjects])
+    {
+        if (![[d objectForKey:@"key"] isEqualToString:@""]) {
+            [exportString appendFormat:@"// %@ in %@\n", [d objectForKey:@"comment"], [d objectForKey:@"file"]];
+        }
+        [exportString appendFormat:@"%@;%@\n", [d objectForKey:@"key"], [d objectForKey:@"value"]];
+        
+    }
+    //save panel
+    [self exportDocument:@"export" toType:@"public.comma-separated-values-text" content:exportString];
+}
+
+
+- (void)exportDocument:(NSString*)name toType:(NSString*)typeUTI content:(NSString *)exportString
+{
+    // Build a new name for the file using the current name and
+    // the filename extension associated with the specified UTI.
+    CFStringRef newExtension = UTTypeCopyPreferredTagWithClass((CFStringRef)typeUTI,
+                                                               kUTTagClassFilenameExtension);
+    NSString* newName = [[name stringByDeletingPathExtension]
+                         stringByAppendingPathExtension:(NSString*)newExtension];
+    CFRelease(newExtension);
+    
+    // Set the default name for the file and show the panel.
+    NSSavePanel*    panel = [NSSavePanel savePanel];
+    [panel setNameFieldStringValue:newName];
+    [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result){
+        if (result == NSFileHandlingPanelOKButton)
+        {
+            NSError *error = nil;
+            NSURL*  theFile = [panel URL];
+            [exportString writeToURL:theFile atomically:NO encoding:NSUTF8StringEncoding error:&error];
+            if (error) {
+                NSLog(@"error = %@", error);
+            }
+        }
+    }];
+}
 
 
 #pragma mark - Generate Strings Actions
@@ -356,7 +433,7 @@
 	[alert runModal];	
 }
 
-- (void)showInfo
+- (void)showCSVInfo
 {
 	[self.pathNameTextField setHidden:NO];
 	[self.pathValueTextField setHidden:NO];
@@ -368,7 +445,7 @@
 	[self.sizeValueLabel setHidden:NO];
 }
 
-- (void)hideInfo
+- (void)hideCSVInfo
 {
 	[self.pathNameTextField setHidden:YES];
 	[self.pathValueTextField setHidden:YES];
@@ -379,6 +456,27 @@
 	[self.sizeNameLabel setHidden:YES];
 	[self.sizeValueLabel setHidden:YES];
 }
+- (void)showFolderInfo
+{
+	[self.folderPathNameTextField setHidden:NO];
+	[self.folderPathValueTextField setHidden:NO];
+	[self.stringsPathNameTextField setHidden:NO];
+	[self.stringsPathValueTextField setHidden:NO];
+	[self.languagesPathNameTextField setHidden:NO];
+	[self.languagesPathValueTextField setHidden:NO];
+}
+
+- (void)hideFolerInfo
+{
+	[self.folderPathNameTextField setHidden:YES];
+	[self.folderPathValueTextField setHidden:YES];
+	[self.stringsPathNameTextField setHidden:YES];
+	[self.stringsPathValueTextField setHidden:YES];
+	[self.languagesPathNameTextField setHidden:YES];
+	[self.languagesPathValueTextField setHidden:YES];
+}
+
+
 
 
 #pragma mark - Delegate DropBox
@@ -400,7 +498,7 @@
 		if ([[dropBox.capturedPath pathExtension] isEqualToString:@"csv"])
 		{
 			[generateButton setEnabled:YES];
-			[self showInfo];
+			[self showCSVInfo];
 			[self launchParsing:dropBox.capturedPath];
 		}
 		else
@@ -409,8 +507,11 @@
 	else if (aDropBox == dropBoxFolder)
 	{
 		[self.folderPathValueTextField setTitleWithMnemonic:aDropBox.capturedPath];
-		
+        NSLog(@"aDropBox.capturedPath = %@", aDropBox.capturedPath);
 		[self findImplementationFiles:aDropBox.capturedPath];
+        [self.previewDataButton setEnabled:YES];
+        [self.exportDataButton setEnabled:YES];
+        [self showFolderInfo];
 	}
 }
 
