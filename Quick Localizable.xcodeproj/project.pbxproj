@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		69525C7D1336B73B00C433C3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69525C7C1336B73B00C433C3 /* Cocoa.framework */; };
 		69525C8A1336B73C00C433C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525C891336B73C00C433C3 /* main.m */; };
-		69525C901336B73C00C433C3 /* LocalizateAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525C8F1336B73C00C433C3 /* LocalizateAppDelegate.m */; };
+		69525C901336B73C00C433C3 /* QuickLocalizableAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69525C8F1336B73C00C433C3 /* QuickLocalizableAppDelegate.m */; };
 		69525C9A1336B73C00C433C3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69525C7C1336B73B00C433C3 /* Cocoa.framework */; };
 		69525CA21336B73C00C433C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69525CA01336B73C00C433C3 /* InfoPlist.strings */; };
 		69525CA51336B73C00C433C3 /* LocalizateTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 69525CA41336B73C00C433C3 /* LocalizateTests.h */; };
@@ -24,13 +24,13 @@
 		69525CD71336B95B00C433C3 /* Magnifier.png in Resources */ = {isa = PBXBuildFile; fileRef = 69525CD51336B95B00C433C3 /* Magnifier.png */; };
 		69525CD91336BDE700C433C3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69525CD81336BDE700C433C3 /* Icon.png */; };
 		6958B37E141BC32500135863 /* Folder-Drop.png in Resources */ = {isa = PBXBuildFile; fileRef = 6958B37D141BC32500135863 /* Folder-Drop.png */; };
-		6958B388141E9FF800135863 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6958B389141E9FF800135863 /* MainMenu.xib */; };
 		697B425713C501A100C6BFF0 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 697B425613C501A100C6BFF0 /* RegexKitLite.m */; };
 		697B425913C502E200C6BFF0 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 697B425813C502E200C6BFF0 /* libicucore.dylib */; };
 		69B13357136957E50015DDA5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69B13359136957E50015DDA5 /* Localizable.strings */; };
 		69B1335D136958230015DDA5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 69B1335F136958230015DDA5 /* Credits.rtf */; };
 		69B13362136958880015DDA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69B13361136958880015DDA5 /* InfoPlist.strings */; };
 		69B133661369594C0015DDA5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 69B133651369594C0015DDA5 /* Icon.icns */; };
+		69C1694C1429BF0800EFAB62 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C1694E1429BF0800EFAB62 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,8 @@
 		69525C841336B73C00C433C3 /* Quick Localizable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Quick Localizable-Info.plist"; sourceTree = "<group>"; };
 		69525C881336B73C00C433C3 /* Quick Localizable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quick Localizable-Prefix.pch"; sourceTree = "<group>"; };
 		69525C891336B73C00C433C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		69525C8E1336B73C00C433C3 /* LocalizateAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizateAppDelegate.h; sourceTree = "<group>"; };
-		69525C8F1336B73C00C433C3 /* LocalizateAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizateAppDelegate.m; sourceTree = "<group>"; };
+		69525C8E1336B73C00C433C3 /* QuickLocalizableAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickLocalizableAppDelegate.h; sourceTree = "<group>"; };
+		69525C8F1336B73C00C433C3 /* QuickLocalizableAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickLocalizableAppDelegate.m; sourceTree = "<group>"; };
 		69525C991336B73C00C433C3 /* Quick LocalizableTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick LocalizableTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69525C9F1336B73C00C433C3 /* Quick LocalizableTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Quick LocalizableTests-Info.plist"; sourceTree = "<group>"; };
 		69525CA11336B73C00C433C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -79,7 +79,6 @@
 		69525CD51336B95B00C433C3 /* Magnifier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Magnifier.png; sourceTree = "<group>"; };
 		69525CD81336BDE700C433C3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		6958B37D141BC32500135863 /* Folder-Drop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-Drop.png"; sourceTree = "<group>"; };
-		6958B389141E9FF800135863 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		697B425513C501A100C6BFF0 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		697B425613C501A100C6BFF0 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		697B425813C502E200C6BFF0 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -89,6 +88,8 @@
 		69B13360136958270015DDA5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = fr; path = fr.lproj/Credits.rtf; sourceTree = "<group>"; };
 		69B13361136958880015DDA5 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		69B133651369594C0015DDA5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		69C1694D1429BF0800EFAB62 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		69C169501429BF2900EFAB62 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				69B133651369594C0015DDA5 /* Icon.icns */,
-				69525C821336B73B00C433C3 /* Localizate */,
+				69525C821336B73B00C433C3 /* QuickLocalizable */,
 				69525C9D1336B73C00C433C3 /* LocalizateTests */,
 				69525C7B1336B73B00C433C3 /* Frameworks */,
 				69525C791336B73B00C433C3 /* Products */,
@@ -152,19 +153,19 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		69525C821336B73B00C433C3 /* Localizate */ = {
+		69525C821336B73B00C433C3 /* QuickLocalizable */ = {
 			isa = PBXGroup;
 			children = (
 				69525CD31336B92800C433C3 /* Images */,
 				69525CBE1336B86800C433C3 /* Libs */,
-				69525C8E1336B73C00C433C3 /* LocalizateAppDelegate.h */,
-				69525C8F1336B73C00C433C3 /* LocalizateAppDelegate.m */,
-				6958B389141E9FF800135863 /* MainMenu.xib */,
+				69525C8E1336B73C00C433C3 /* QuickLocalizableAppDelegate.h */,
+				69525C8F1336B73C00C433C3 /* QuickLocalizableAppDelegate.m */,
+				69C1694E1429BF0800EFAB62 /* MainMenu.xib */,
 				69525CB21336B78F00C433C3 /* JDDropBox.h */,
 				69525CB31336B78F00C433C3 /* JDDropBox.m */,
 				69525C831336B73C00C433C3 /* Supporting Files */,
 			);
-			path = Localizate;
+			path = QuickLocalizable;
 			sourceTree = "<group>";
 		};
 		69525C831336B73C00C433C3 /* Supporting Files */ = {
@@ -187,7 +188,8 @@
 				69525CA61336B73C00C433C3 /* LocalizateTests.m */,
 				69525C9E1336B73C00C433C3 /* Supporting Files */,
 			);
-			path = LocalizateTests;
+			name = LocalizateTests;
+			path = QuickLocalizableTests;
 			sourceTree = "<group>";
 		};
 		69525C9E1336B73C00C433C3 /* Supporting Files */ = {
@@ -319,7 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6958B388141E9FF800135863 /* MainMenu.xib in Resources */,
+				69C1694C1429BF0800EFAB62 /* MainMenu.xib in Resources */,
 				69525CD71336B95B00C433C3 /* Magnifier.png in Resources */,
 				69525CD91336BDE700C433C3 /* Icon.png in Resources */,
 				69B13357136957E50015DDA5 /* Localizable.strings in Resources */,
@@ -363,7 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69525C8A1336B73C00C433C3 /* main.m in Sources */,
-				69525C901336B73C00C433C3 /* LocalizateAppDelegate.m in Sources */,
+				69525C901336B73C00C433C3 /* QuickLocalizableAppDelegate.m in Sources */,
 				69525CB41336B78F00C433C3 /* JDDropBox.m in Sources */,
 				69525CC11336B87500C433C3 /* JDUtils.m in Sources */,
 				69525CCE1336B88800C433C3 /* CHCSVParser.m in Sources */,
@@ -419,6 +421,15 @@
 				69B13360136958270015DDA5 /* fr */,
 			);
 			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		69C1694E1429BF0800EFAB62 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69C1694D1429BF0800EFAB62 /* en */,
+				69C169501429BF2900EFAB62 /* fr */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

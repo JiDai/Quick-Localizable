@@ -4,7 +4,10 @@
 
   Created by Jordi Dosne on 28/04/11.
   Copyright 2011 Quadupède. All rights reserved.
-*/
+ */
+"tab_title_strings" = "Générer des fichiers Strings";
+"tab_title_csv" = "Générer un fichier CSV";
+
 "lbl_drop_here" = "Glissez un fichier ici";
 "lbl_path" = "Chemin du fichier";
 "lbl_nb_rows" = "Nombe de lignes";
@@ -24,6 +27,8 @@
 "lbl_found_lg" = "Langues trouvées";
 "lbl_export" = "Exporter";
 "lbl_refresh" = "Rafraîchir";
+"lbl_title_preview" = "Chaînes trouvées :";
+"lbl_folder_help" = "Votre dossier doit contenir des dossier “.lproj“ et des fichiers “.m“ ";
 
 "choose_output_directory" = "Choisissez un dossier de sortie";
 "job_done" = "Terminé!";

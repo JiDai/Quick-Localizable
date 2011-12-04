@@ -4,7 +4,10 @@
 
   Created by Jordi Dosne on 28/04/11.
   Copyright 2011 Quadupède. All rights reserved.
-*/
+ */
+"tab_title_strings" = "Generate localizable strings";
+"tab_title_csv" = "Generate CSV file";
+
 "lbl_drop_here" = "Drop a CSV file here";
 "lbl_path" = "Path of the input file";
 "lbl_nb_rows" = "Total of rows";
@@ -24,6 +27,8 @@
 "lbl_found_lg" = "Languages found";
 "lbl_export" = "Export";
 "lbl_refresh" = "Refresh";
+"lbl_title_preview" = "Found strings :";
+"lbl_folder_help" = "Your folder must contains “lproj“ folders and “.m“ files";
 
 "choose_output_directory" = "Choose output folder";
 "job_done" = "Job done!";
