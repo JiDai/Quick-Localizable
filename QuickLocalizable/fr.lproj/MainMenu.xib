@@ -3,15 +3,33 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
 		<string key="IBDocument.SystemVersion">11C74</string>
-		<string key="IBDocument.InterfaceBuilderVersion">907</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1617</string>
 		<string key="IBDocument.AppKitVersion">1138.23</string>
 		<string key="IBDocument.HIToolboxVersion">567.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">907</string>
+			<string key="NS.object.0">1617</string>
 		</object>
-		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
+		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<string>NSScroller</string>
+			<string>NSArrayController</string>
+			<string>NSMenuItem</string>
+			<string>NSMenu</string>
+			<string>NSTextFieldCell</string>
+			<string>NSButton</string>
+			<string>NSButtonCell</string>
+			<string>NSBox</string>
+			<string>NSScrollView</string>
+			<string>NSTableView</string>
+			<string>NSTabView</string>
+			<string>NSTableHeaderView</string>
+			<string>NSCustomObject</string>
+			<string>NSTabViewItem</string>
+			<string>NSView</string>
+			<string>NSWindowTemplate</string>
+			<string>NSTextField</string>
+			<string>NSTableColumn</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -22,9 +40,7 @@
 			<object class="NSArray" key="dict.sortedKeys" id="0">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 			</object>
-			<object class="NSMutableArray" key="dict.values">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-			</object>
+			<reference key="dict.values" ref="0"/>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.RootObjects" id="1048">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -270,7 +286,6 @@
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
-				<string key="NSWindowContentMaxSize">{1.7976931348623157e+308, 1.7976931348623157e+308}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
 					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -346,7 +361,7 @@
 													<object class="NSFont" key="NSSupport" id="26">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">11</double>
-														<int key="NSfFlags">3088</int>
+														<int key="NSfFlags">3100</int>
 													</object>
 													<object class="NSColor" key="NSBackgroundColor" id="944618124">
 														<int key="NSColorSpace">6</int>
@@ -419,7 +434,7 @@
 													<object class="NSFont" key="NSSupport" id="1002374358">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">13</double>
-														<int key="NSfFlags">1040</int>
+														<int key="NSfFlags">1044</int>
 													</object>
 													<reference key="NSControlView" ref="883476804"/>
 													<reference key="NSBackgroundColor" ref="840180341"/>
@@ -1222,7 +1237,7 @@
 													<object class="NSFont" key="NSSupport">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">11</double>
-														<int key="NSfFlags">2320</int>
+														<int key="NSfFlags">2329</int>
 													</object>
 													<string key="NSCellIdentifier">_NS:3936</string>
 													<reference key="NSControlView" ref="823172691"/>
@@ -1245,7 +1260,7 @@
 													<object class="NSFont" key="NSSupport">
 														<string key="NSName">LucidaGrande-Bold</string>
 														<double key="NSSize">13</double>
-														<int key="NSfFlags">2064</int>
+														<int key="NSfFlags">2072</int>
 													</object>
 													<string key="NSCellIdentifier">_NS:3936</string>
 													<reference key="NSControlView" ref="1022309348"/>
@@ -1277,7 +1292,7 @@
 					<reference key="NSNextKeyView" ref="615022329"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 900}}</string>
-				<string key="NSMaxSize">{1.7976931348623157e+308, 1.7976931348623157e+308}</string>
+				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSArrayController" id="864346622">
@@ -2784,17 +2799,13 @@
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<reference key="dict.sortedKeys" ref="0"/>
-				<object class="NSMutableArray" key="dict.values">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-				</object>
+				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="activeLocalization"/>
 			<object class="NSMutableDictionary" key="localizations">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<reference key="dict.sortedKeys" ref="0"/>
-				<object class="NSMutableArray" key="dict.values">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-				</object>
+				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
 			<int key="maxID">755</int>
@@ -3102,8 +3113,8 @@
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBUserSource</string>
-						<string key="minorKey"/>
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/QuickLocalizableAppDelegate.h</string>
 					</object>
 				</object>
 			</object>
@@ -3119,7 +3130,6 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<nil key="IBDocument.LastKnownRelativeProjectPath"/>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<bool key="EncodedWithXMLCoder">YES</bool>

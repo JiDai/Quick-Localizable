@@ -44,17 +44,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		69525C781336B73B00C433C3 /* Quick Localizable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quick Localizable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69525C781336B73B00C433C3 /* QuickLocalizable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickLocalizable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69525C7C1336B73B00C433C3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		69525C7F1336B73B00C433C3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		69525C801336B73B00C433C3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		69525C811336B73B00C433C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		69525C841336B73C00C433C3 /* Quick Localizable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Quick Localizable-Info.plist"; sourceTree = "<group>"; };
-		69525C881336B73C00C433C3 /* Quick Localizable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quick Localizable-Prefix.pch"; sourceTree = "<group>"; };
+		69525C841336B73C00C433C3 /* QuickLocalizable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuickLocalizable-Info.plist"; sourceTree = "<group>"; };
+		69525C881336B73C00C433C3 /* QuickLocalizable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickLocalizable-Prefix.pch"; sourceTree = "<group>"; };
 		69525C891336B73C00C433C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		69525C8E1336B73C00C433C3 /* QuickLocalizableAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickLocalizableAppDelegate.h; sourceTree = "<group>"; };
 		69525C8F1336B73C00C433C3 /* QuickLocalizableAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickLocalizableAppDelegate.m; sourceTree = "<group>"; };
-		69525C991336B73C00C433C3 /* Quick LocalizableTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick LocalizableTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69525C991336B73C00C433C3 /* QuickLocalizableTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickLocalizableTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69525C9F1336B73C00C433C3 /* Quick LocalizableTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Quick LocalizableTests-Info.plist"; sourceTree = "<group>"; };
 		69525CA11336B73C00C433C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69525CA31336B73C00C433C3 /* Quick LocalizableTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quick LocalizableTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 		69525C791336B73B00C433C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				69525C781336B73B00C433C3 /* Quick Localizable.app */,
-				69525C991336B73C00C433C3 /* Quick LocalizableTests.octest */,
+				69525C781336B73B00C433C3 /* QuickLocalizable.app */,
+				69525C991336B73C00C433C3 /* QuickLocalizableTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,8 +171,8 @@
 		69525C831336B73C00C433C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				69525C841336B73C00C433C3 /* Quick Localizable-Info.plist */,
-				69525C881336B73C00C433C3 /* Quick Localizable-Prefix.pch */,
+				69525C841336B73C00C433C3 /* QuickLocalizable-Info.plist */,
+				69525C881336B73C00C433C3 /* QuickLocalizable-Prefix.pch */,
 				69525C891336B73C00C433C3 /* main.m */,
 				69B13361136958880015DDA5 /* InfoPlist.strings */,
 				69B1335F136958230015DDA5 /* Credits.rtf */,
@@ -253,9 +253,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		69525C771336B73B00C433C3 /* Quick Localizable */ = {
+		69525C771336B73B00C433C3 /* QuickLocalizable */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 69525CAA1336B73C00C433C3 /* Build configuration list for PBXNativeTarget "Quick Localizable" */;
+			buildConfigurationList = 69525CAA1336B73C00C433C3 /* Build configuration list for PBXNativeTarget "QuickLocalizable" */;
 			buildPhases = (
 				69525C741336B73B00C433C3 /* Sources */,
 				69525C751336B73B00C433C3 /* Frameworks */,
@@ -265,14 +265,14 @@
 			);
 			dependencies = (
 			);
-			name = "Quick Localizable";
+			name = QuickLocalizable;
 			productName = Localizate;
-			productReference = 69525C781336B73B00C433C3 /* Quick Localizable.app */;
+			productReference = 69525C781336B73B00C433C3 /* QuickLocalizable.app */;
 			productType = "com.apple.product-type.application";
 		};
-		69525C981336B73C00C433C3 /* Quick LocalizableTests */ = {
+		69525C981336B73C00C433C3 /* QuickLocalizableTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 69525CAD1336B73C00C433C3 /* Build configuration list for PBXNativeTarget "Quick LocalizableTests" */;
+			buildConfigurationList = 69525CAD1336B73C00C433C3 /* Build configuration list for PBXNativeTarget "QuickLocalizableTests" */;
 			buildPhases = (
 				69525C941336B73C00C433C3 /* Sources */,
 				69525C951336B73C00C433C3 /* Frameworks */,
@@ -284,9 +284,9 @@
 			dependencies = (
 				69525C9C1336B73C00C433C3 /* PBXTargetDependency */,
 			);
-			name = "Quick LocalizableTests";
+			name = QuickLocalizableTests;
 			productName = LocalizateTests;
-			productReference = 69525C991336B73C00C433C3 /* Quick LocalizableTests.octest */;
+			productReference = 69525C991336B73C00C433C3 /* QuickLocalizableTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -297,7 +297,7 @@
 			attributes = {
 				ORGANIZATIONNAME = "";
 			};
-			buildConfigurationList = 69525C721336B73B00C433C3 /* Build configuration list for PBXProject "Quick Localizable" */;
+			buildConfigurationList = 69525C721336B73B00C433C3 /* Build configuration list for PBXProject "QuickLocalizable" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -310,8 +310,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				69525C771336B73B00C433C3 /* Quick Localizable */,
-				69525C981336B73C00C433C3 /* Quick LocalizableTests */,
+				69525C771336B73B00C433C3 /* QuickLocalizable */,
+				69525C981336B73C00C433C3 /* QuickLocalizableTests */,
 			);
 		};
 /* End PBXProject section */
@@ -390,7 +390,7 @@
 /* Begin PBXTargetDependency section */
 		69525C9C1336B73C00C433C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 69525C771336B73B00C433C3 /* Quick Localizable */;
+			target = 69525C771336B73B00C433C3 /* QuickLocalizable */;
 			targetProxy = 69525C9B1336B73C00C433C3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -485,9 +485,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Localizate/Quick Localizable-Prefix.pch";
-				INFOPLIST_FILE = "Localizate/Quick Localizable-Info.plist";
-				PRODUCT_NAME = "Quick Localizable";
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = "";
+				PRODUCT_NAME = QuickLocalizable;
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				VALID_ARCHS = "x86_64 i386";
@@ -504,9 +504,9 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Localizate/Quick Localizable-Prefix.pch";
-				INFOPLIST_FILE = "Localizate/Quick Localizable-Info.plist";
-				PRODUCT_NAME = "Quick Localizable";
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = "";
+				PRODUCT_NAME = QuickLocalizable;
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				VALID_ARCHS = "x86_64 i386";
@@ -530,7 +530,7 @@
 					"-framework",
 					SenTestingKit,
 				);
-				PRODUCT_NAME = "Quick LocalizableTests";
+				PRODUCT_NAME = QuickLocalizableTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -552,7 +552,7 @@
 					"-framework",
 					SenTestingKit,
 				);
-				PRODUCT_NAME = "Quick LocalizableTests";
+				PRODUCT_NAME = QuickLocalizableTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -561,7 +561,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		69525C721336B73B00C433C3 /* Build configuration list for PBXProject "Quick Localizable" */ = {
+		69525C721336B73B00C433C3 /* Build configuration list for PBXProject "QuickLocalizable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				69525CA81336B73C00C433C3 /* Debug */,
@@ -570,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		69525CAA1336B73C00C433C3 /* Build configuration list for PBXNativeTarget "Quick Localizable" */ = {
+		69525CAA1336B73C00C433C3 /* Build configuration list for PBXNativeTarget "QuickLocalizable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				69525CAB1336B73C00C433C3 /* Debug */,
@@ -579,7 +579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		69525CAD1336B73C00C433C3 /* Build configuration list for PBXNativeTarget "Quick LocalizableTests" */ = {
+		69525CAD1336B73C00C433C3 /* Build configuration list for PBXNativeTarget "QuickLocalizableTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				69525CAE1336B73C00C433C3 /* Debug */,
