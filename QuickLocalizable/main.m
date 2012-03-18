@@ -10,5 +10,7 @@
 
 int main(int argc, char *argv[])
 {
+    //NSString *logPath = @"/Users/jd/Logs/xcode-debug.log";
+    //freopen([logPath fileSystemRepresentation], "a", stderr);
 	return NSApplicationMain(argc, (const char **)argv);
 }

@@ -145,8 +145,7 @@
 
 
 - (void)findImplementationFiles:(NSString *)path
-{
-	NSFileManager *localFileManager = [NSFileManager defaultManager];	
+{	
 	if (mFiles) {
 		[mFiles release];
 	}
@@ -157,12 +156,9 @@
 	foundLanguages = [[NSMutableSet alloc] initWithCapacity:0];
 	
 	NSString *docsDir = path;
-	NSDirectoryEnumerator *dirEnum = [localFileManager enumeratorAtPath:docsDir];
-	
-	NSString *file;
     stringsFound = NO;
     stringsPath = @"";
-	while ((file = [dirEnum nextObject]))
+	/*while ((file = [dirEnum nextObject]))
 	{
 		if ([[file pathExtension] isEqualToString: @"m"])
 		{
@@ -177,7 +173,62 @@
             stringsFound = YES;
             stringsPath = [path stringByAppendingFormat:@"/%@", file];
 		}
-	}
+	}*/
+    
+    NSMutableSet *contents = [[[NSMutableSet alloc] init] autorelease];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    BOOL isDir;
+    if (docsDir && ([fm fileExistsAtPath:docsDir isDirectory:&isDir] && isDir))
+    {
+        if (![docsDir hasSuffix:@"/"]) 
+        {
+            docsDir = [docsDir stringByAppendingString:@"/"];
+        }
+        
+        // this walks the |docsDir| recurisively and adds the paths to the |contents| set
+        NSDirectoryEnumerator *de = [fm enumeratorAtPath:docsDir];
+        NSString *f;
+        NSString *fqn;
+        while ((f = [de nextObject]))
+        {
+            // make the filename |f| a fully qualifed filename
+            fqn = [docsDir stringByAppendingString:f];
+            if ([fm fileExistsAtPath:fqn isDirectory:&isDir] && isDir)
+            {
+                // append a / to the end of all docsDirectory entries
+                fqn = [fqn stringByAppendingString:@"/"];
+            }
+            [contents addObject:fqn];
+        }
+    }
+    else
+    {
+        NSLog(@"%@ must be docsDirectory and must exist\n", [docsDir UTF8String]);
+        
+    }
+    
+    for (NSString *file in contents)
+    {
+        
+		if ([[file pathExtension] isEqualToString: @"m"])
+		{
+            NSLog(@"file = %@", file);
+			[mFiles addObject:file];
+		}
+		if ([[file pathExtension] isEqualToString: @"lproj"])
+		{
+            NSLog(@"[file stringByDeletingPathExtension] = %@", [file stringByDeletingPathExtension]);
+            NSLog(@"last = %@", [[[file stringByDeletingPathExtension] componentsSeparatedByString:@"/"] lastObject]);
+            [foundLanguages addObject:[[[file stringByDeletingPathExtension] componentsSeparatedByString:@"/"] lastObject]];
+		}
+		if ([[file lastPathComponent] isEqualToString: @"Localizable.strings"])
+		{
+            stringsFound = YES;
+            stringsPath = file;
+		}
+    }   
+    NSLog(@"foundLanguages = %@", foundLanguages);
+    
 	[languagesPathValueTextField setTitleWithMnemonic:[[foundLanguages allObjects] componentsJoinedByString:@", "]];
     [stringsPathValueTextField setTitleWithMnemonic:stringsPath];
 	[self parseImplementationFiles];
@@ -199,10 +250,15 @@
 
     for (NSString *l in foundLanguages)
     {
-        fileContent = [NSString stringWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.lproj/Localizable.strings", dropBoxFolder.capturedPath, l] encoding:NSUTF8StringEncoding error:&error];
+        fileContent = [NSString stringWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.lproj/Localizable.strings", [[stringsPath stringByDeletingLastPathComponent] stringByDeletingLastPathComponent], l] encoding:NSUTF8StringEncoding error:&error];
         
+        if (error) {
+            NSLog(@"error = %@", error);
+        }
+    
         NSString *regexString = @"\"([^\"]+)\" = \"([^\"]+)\";";
-        for(NSString *match in [fileContent componentsMatchedByRegex:regexString]) {
+        for(NSString *match in [fileContent componentsMatchedByRegex:regexString])
+        {
             NSArray *c = [match componentsSeparatedByString:@"\""];
             if( [allStrings objectForKey:[c objectAtIndex:1]] )
             {
@@ -215,6 +271,7 @@
             
         }
     }
+    NSLog(@"allStrings = %@", allStrings);
     
     [[ac mutableArrayValueForKey:@"content"] removeAllObjects];
     

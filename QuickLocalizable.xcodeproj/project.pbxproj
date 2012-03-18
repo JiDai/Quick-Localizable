@@ -49,7 +49,7 @@
 		69525C7F1336B73B00C433C3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		69525C801336B73B00C433C3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		69525C811336B73B00C433C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		69525C841336B73C00C433C3 /* QuickLocalizable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuickLocalizable-Info.plist"; sourceTree = "<group>"; };
+		69525C841336B73C00C433C3 /* QuickLocalizable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "QuickLocalizable-Info.plist"; path = "QuickLocalizable/QuickLocalizable-Info.plist"; sourceTree = SOURCE_ROOT; };
 		69525C881336B73C00C433C3 /* QuickLocalizable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickLocalizable-Prefix.pch"; sourceTree = "<group>"; };
 		69525C891336B73C00C433C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		69525C8E1336B73C00C433C3 /* QuickLocalizableAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickLocalizableAppDelegate.h; sourceTree = "<group>"; };
@@ -450,6 +450,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Quick Localizable";
@@ -469,6 +470,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Quick Localizable";
@@ -487,7 +489,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "QuickLocalizable/QuickLocalizable-Info.plist";
 				PRODUCT_NAME = QuickLocalizable;
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
@@ -506,7 +508,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "QuickLocalizable/QuickLocalizable-Info.plist";
 				PRODUCT_NAME = QuickLocalizable;
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
