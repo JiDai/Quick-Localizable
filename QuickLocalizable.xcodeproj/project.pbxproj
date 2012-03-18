@@ -295,6 +295,7 @@
 		69525C6F1336B73B00C433C3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 69525C721336B73B00C433C3 /* Build configuration list for PBXProject "QuickLocalizable" */;

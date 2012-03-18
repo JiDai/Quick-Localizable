@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
+   LastUpgradeVersion = "0430"
    version = "1.8">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "69525C771336B73B00C433C3"
-               BuildableName = "Quick Localizable.app"
+               BuildableName = "QuickLocalizable.app"
                BlueprintName = "QuickLocalizable"
                ReferencedContainer = "container:QuickLocalizable.xcodeproj">
             </BuildableReference>
@@ -32,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "69525C981336B73C00C433C3"
-               BuildableName = "Quick LocalizableTests.octest"
+               BuildableName = "QuickLocalizableTests.octest"
                BlueprintName = "QuickLocalizableTests"
                ReferencedContainer = "container:QuickLocalizable.xcodeproj">
             </BuildableReference>
@@ -40,18 +41,21 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
       displayScaleIsEnabled = "NO"
       displayScale = "1.00"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug">
+      buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "69525C771336B73B00C433C3"
-            BuildableName = "Quick Localizable.app"
+            BuildableName = "QuickLocalizable.app"
             BlueprintName = "QuickLocalizable"
             ReferencedContainer = "container:QuickLocalizable.xcodeproj">
          </BuildableReference>
@@ -65,12 +69,13 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release">
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "69525C771336B73B00C433C3"
-            BuildableName = "Quick Localizable.app"
+            BuildableName = "QuickLocalizable.app"
             BlueprintName = "QuickLocalizable"
             ReferencedContainer = "container:QuickLocalizable.xcodeproj">
          </BuildableReference>

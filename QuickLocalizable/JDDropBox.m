@@ -63,6 +63,7 @@
 - (void)dealloc
 {
 	[capturedPath release];
+    [super dealloc];
 }
 
 @end

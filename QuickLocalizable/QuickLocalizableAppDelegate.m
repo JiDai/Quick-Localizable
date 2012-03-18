@@ -180,7 +180,6 @@
 	}
 	[languagesPathValueTextField setTitleWithMnemonic:[[foundLanguages allObjects] componentsJoinedByString:@", "]];
     [stringsPathValueTextField setTitleWithMnemonic:stringsPath];
-	[localFileManager release];
 	[self parseImplementationFiles];
 }
 
@@ -225,7 +224,8 @@
 		NSString *contents = [[NSString alloc] initWithData:[fileManager contentsAtPath:file] encoding:NSUTF8StringEncoding];
 		NSString *regexString     = @"NSLocalizedString\\(\\s?([^\\)]+)\\s?\\)";
         
-		for(NSString *match in [contents componentsMatchedByRegex:regexString]) {
+        NSArray *matches = [contents componentsMatchedByRegex:regexString];
+		for(NSString *match in matches) {
 			NSArray *c = [match componentsSeparatedByString:@"\""];
 			NSString *keyString = [c objectAtIndex:1];
 			NSString *commentString = [c objectAtIndex:3];
@@ -287,6 +287,7 @@
     }
     //save panel
     [self exportDocument:@"export" toType:@"public.comma-separated-values-text" content:exportString];
+    [exportString release];
 }
 
 
@@ -355,10 +356,10 @@
 	NSOpenPanel *oPanel = [NSOpenPanel openPanel];
 	
 	[oPanel setAllowsMultipleSelection:YES];
-	result = [oPanel runModalForDirectory:NSHomeDirectory()
-                                     file:nil types:fileTypes];
+	result = [oPanel runModal];
+    [oPanel setAllowedFileTypes:fileTypes];
 	if (result == NSOKButton) {
-		NSArray *filesToOpen = [oPanel filenames];
+		NSArray *filesToOpen = [oPanel URLs];
 		int i, count = [filesToOpen count];
 		for (i=0; i<count; i++) {
 			NSString *aFile = [filesToOpen objectAtIndex:i];
@@ -378,7 +379,7 @@
 	[oPanel setAllowsMultipleSelection:NO];
 	[oPanel setTitle: NSLocalizedString(@"choose_output_directory", @"")];
 	[oPanel setDelegate:self];
-	result = [oPanel runModalForDirectory:NSHomeDirectory() file:nil types:nil];
+	result = [oPanel runModal];
 	
 	if (result == NSOKButton)
 	{
@@ -552,7 +553,7 @@
 	[self.languagesPathValueTextField setHidden:NO];
 }
 
-- (void)hideFolerInfo
+- (void)hideFolderInfo
 {
 	[self.folderPathNameTextField setHidden:YES];
 	[self.folderPathValueTextField setHidden:YES];
