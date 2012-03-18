@@ -90,6 +90,7 @@
 		69B133651369594C0015DDA5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		69C1694D1429BF0800EFAB62 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		69C169501429BF2900EFAB62 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		69D92E3B15163CEC002B7002 /* QuickLocalizable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = QuickLocalizable.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +157,7 @@
 		69525C821336B73B00C433C3 /* QuickLocalizable */ = {
 			isa = PBXGroup;
 			children = (
+				69D92E3B15163CEC002B7002 /* QuickLocalizable.entitlements */,
 				69525CD31336B92800C433C3 /* Images */,
 				69525CBE1336B86800C433C3 /* Libs */,
 				69525C8E1336B73C00C433C3 /* QuickLocalizableAppDelegate.h */,
@@ -483,6 +485,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = QuickLocalizable/QuickLocalizable.entitlements;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -502,6 +505,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = QuickLocalizable/QuickLocalizable.entitlements;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
