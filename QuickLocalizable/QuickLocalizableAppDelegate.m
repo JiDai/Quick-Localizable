@@ -666,13 +666,13 @@
 	NSLog(@"parser started: %@", csvFile);
 }
 - (void) parser:(CHCSVParser *)parser didStartLine:(NSUInteger)lineNumber {
-	NSLog(@"Starting line: %u", lineNumber);
+	//NSLog(@"Starting line: %u", lineNumber);
 }
 - (void) parser:(CHCSVParser *)parser didReadField:(NSString *)field {
 	NSLog(@"   field: %@", field);
 }
 - (void) parser:(CHCSVParser *)parser didEndLine:(NSUInteger)lineNumber {
-	NSLog(@"Ending line: %u", lineNumber);
+	//NSLog(@"Ending line: %u", lineNumber);
 }
 - (void) parser:(CHCSVParser *)parser didEndDocument:(NSString *)csvFile {
 	NSLog(@"parser ended: %@", csvFile);

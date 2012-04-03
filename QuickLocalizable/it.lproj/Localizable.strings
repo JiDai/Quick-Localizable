@@ -1,0 +1,40 @@
+/* 
+ Localizable.strings
+ Quick Localizable
+ 
+ Created by Jordi Dosne on 28/04/11.
+ Copyright 2011 Jordi Dosne. All rights reserved.
+ */
+"tab_title_strings" = "Genera stringhe localizzabili";
+"tab_title_csv" = "Genera file CSV";
+
+"lbl_drop_here" = "Rilascia un file CSV qui";
+"lbl_path" = "Percorso del file di input";
+"lbl_nb_rows" = "Numero di righe";
+"lbl_nb_vars" = "Numero di stringhe";
+"lbl_nb_comments" = "Numero di commenti";
+"lbl_nb_languages" = "Numero di localizzazioni";
+"lbl_size" = "Dimensione del file";
+"lbl_no_file" = "Nessun file è stato selezionato";
+"lbl_option_comment" = " Includi commenti";
+"lbl_option_comment_info" = "I commenti saranno creati con le prime celle delle righe che iniziano con # o //";
+"lbl_option_create_folders" = " Crea cartella se non esiste";
+"lbl_option_create_folders_info" = "Se selezionata, la cartella della localizzazione sarà creata se i dati localizzati sono stati trovati.";
+"lbl_generate" = "Genera!";
+
+"lbl_folder_path" = "Percorso della cartella";
+"lbl_strings_path" = "File stringhe trovato";
+"lbl_found_lg" = "Lingue trovate";
+"lbl_export" = "Esporta";
+"lbl_refresh" = "Aggiorna";
+"lbl_title_preview" = "Stringhe trovate :";
+"lbl_folder_help" = "La cartella deve contenere le cartelle “lproj“ ed i file “.m“";
+
+"choose_output_directory" = "Scegli cartella di output";
+"job_done" = "Attività completata!";
+
+"err_file_type" = "Specifica un file CSV";
+"err_unable_creating_files" = "Impossibile creare i file. Controlla il percorso di output.";
+
+"lbl_yes" = "Sì";
+"lbl_no" = "No";

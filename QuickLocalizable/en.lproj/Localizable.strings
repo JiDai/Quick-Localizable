@@ -3,7 +3,7 @@
   Quick Localizable
 
   Created by Jordi Dosne on 28/04/11.
-  Copyright 2011 Quadupède. All rights reserved.
+  Copyright 2011 Jordi Dosne. All rights reserved.
  */
 "tab_title_strings" = "Generate localizable strings";
 "tab_title_csv" = "Generate CSV file";
