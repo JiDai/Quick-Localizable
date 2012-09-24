@@ -22,6 +22,7 @@
 "lbl_option_create_folders_info" = "Si coché, des dossiers de locales seront créés automatiquement, sinon aucun fichier ne sera créé.";
 "lbl_generate" = "Générer!";
 
+"lbl_drop_folder_here" = "Glissez un dossier";
 "lbl_folder_path" = "Chemin du dossier";
 "lbl_strings_path" = "Fichier Strings";
 "lbl_found_lg" = "Langues trouvées";

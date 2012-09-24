@@ -71,6 +71,7 @@
 	[self.generateButton setTitleWithMnemonic:NSLocalizedString(@"lbl_generate", @"")];
 	[self.generateButton setEnabled:NO];
     
+    [self.dropBoxFolder setTitle:NSLocalizedString(@"lbl_drop_folder_here", @"")];
 	[self.folderPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_folder_path", @"")];
 	[self.stringsPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_strings_path", @"")];
 	[self.languagesPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_found_lg", @"")];
@@ -203,7 +204,7 @@
     }
     else
     {
-        NSLog(@"%@ must be docsDirectory and must exist\n", [docsDir UTF8String]);
+        NSLog(@"%s must be docsDirectory and must exist\n", [docsDir UTF8String]);
         
     }
     
@@ -284,16 +285,21 @@
         NSArray *matches = [contents componentsMatchedByRegex:regexString];
 		for(NSString *match in matches) {
 			NSArray *c = [match componentsSeparatedByString:@"\""];
+			NSLog(@"c = %@", c);
 			NSString *keyString = [c objectAtIndex:1];
-			NSString *commentString = [c objectAtIndex:3];
-            
+			NSString *commentString;
+         if([c count] <= 3 )
+				commentString = @"";
+			else
+				commentString = [c objectAtIndex:3];
+			   
             NSMutableDictionary *dict = [[NSMutableDictionary alloc]  initWithCapacity:0];
             [dict setObject:keyString forKey:@"key"];
             [dict setObject:commentString forKey:@"comment"];
             [dict setObject:file forKey:@"file"];
             if ([allStrings objectForKey:keyString])
             {
-                NSLog(@"keyString = %@", [allStrings objectForKey:keyString]);
+                //NSLog(@"keyString = %@", [allStrings objectForKey:keyString]);
                 NSString *value = [[allStrings objectForKey:keyString] objectForKey:[[foundLanguages allObjects] objectAtIndex:0]];
                 if (value) {
                     [dict setObject:value forKey:@"value"];
@@ -440,8 +446,9 @@
 	
 	if (result == NSOKButton)
 	{
-		outputDirectoryPath = [[[oPanel directoryURL] path] retain];
-		[self.outputDirectoryLabel setTitleWithMnemonic:[[oPanel directoryURL] path]];
+        NSURL *urlSelected = [[oPanel URLs] lastObject];
+		outputDirectoryPath = [[urlSelected path] retain];
+		[self.outputDirectoryLabel setTitleWithMnemonic:[urlSelected path]];
 	}
 }
 
@@ -633,13 +640,16 @@
 		
 		NSFileManager *filemgr = [NSFileManager defaultManager];	
 		NSError *error;
-		NSDictionary *attributes = [filemgr attributesOfItemAtPath:dropBox.capturedPath error:&error];
+		NSDictionary *attributes = [filemgr attributesOfItemAtPath:aDropBox.capturedPath error:&error];
 		
 		
 		[self.sizeValueLabel setTitleWithMnemonic:[JDUtils getHumanReadableSize:[[attributes objectForKey:NSFileSize] floatValue]]];
 		
-		
-		if ([[dropBox.capturedPath pathExtension] isEqualToString:@"csv"])
+        //NSWorkspace *ws = [NSWorkspace sharedWorkspace];
+        //NSLog(@"attr = %@", [ws typeOfFile:aDropBox.capturedPath error:nil]);
+		// //public.comma-separated-values-text
+        
+        if ([[dropBox.capturedPath pathExtension] isEqualToString:@"csv"])
 		{
 			[generateButton setEnabled:YES];
 			[self showCSVInfo];
@@ -651,8 +661,14 @@
 	else if (aDropBox == dropBoxFolder)
 	{
 		[self.folderPathValueTextField setTitleWithMnemonic:aDropBox.capturedPath];
-        NSLog(@"aDropBox.capturedPath = %@", aDropBox.capturedPath);
-		[self findImplementationFiles:aDropBox.capturedPath];
+        NSFileManager *filemgr = [NSFileManager defaultManager];	
+		NSDictionary *attr = [filemgr attributesOfItemAtPath:aDropBox.capturedPath error:nil];
+        if( ![[attr objectForKey:NSFileType] isEqualToString:NSFileTypeDirectory])
+        {
+            NSLog(@"%@ must be a directory and must exist\n", aDropBox.capturedPath);
+            return;
+        }
+        [self findImplementationFiles:aDropBox.capturedPath];
         [self.previewDataButton setEnabled:YES];
         [self.exportDataButton setEnabled:YES];
         [self showFolderInfo];

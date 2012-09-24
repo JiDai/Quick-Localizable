@@ -74,8 +74,8 @@
 @property (nonatomic, retain) IBOutlet NSTextField *nbLanguagesNameLabel;
 @property (nonatomic, retain) IBOutlet NSTextField *nbLanguagesValueLabel;
 @property (nonatomic, retain) IBOutlet NSTextField *outputDirectoryLabel;
-@property (nonatomic, retain)  IBOutlet NSTextField *tableViewTitleTextField;
-@property (nonatomic, retain)  IBOutlet NSTextField *folderHelpTextField;
+@property (nonatomic, retain) IBOutlet NSTextField *tableViewTitleTextField;
+@property (nonatomic, retain) IBOutlet NSTextField *folderHelpTextField;
 @property (nonatomic, retain) IBOutlet NSButton *parseCommentCheckBox;
 @property (nonatomic, retain) IBOutlet NSButton *createFoldersCheckBox;
 @property (nonatomic, retain) IBOutlet NSTextField *parseCommentLabel;

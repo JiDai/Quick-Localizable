@@ -22,6 +22,7 @@
 "lbl_option_create_folders_info" = "Se selezionata, la cartella della localizzazione sarà creata se i dati localizzati sono stati trovati.";
 "lbl_generate" = "Genera!";
 
+"lbl_drop_folder_here" = "Rilascia una cartella";
 "lbl_folder_path" = "Percorso della cartella";
 "lbl_strings_path" = "File stringhe trovato";
 "lbl_found_lg" = "Lingue trovate";
