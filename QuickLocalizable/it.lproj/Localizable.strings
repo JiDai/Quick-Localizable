@@ -34,8 +34,11 @@
 "choose_output_directory" = "Scegli cartella di output";
 "job_done" = "Attività completata!";
 
+"err_title" = "Errore";
 "err_file_type" = "Specifica un file CSV";
 "err_unable_creating_files" = "Impossibile creare i file. Controlla il percorso di output.";
+"err_unable_opening_file" = "Impossibile aprire i file.";
+"files" = "file";
 
 "lbl_yes" = "Sì";
 "lbl_no" = "No";

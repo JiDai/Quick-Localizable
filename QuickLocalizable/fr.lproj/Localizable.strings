@@ -29,13 +29,16 @@
 "lbl_export" = "Exporter";
 "lbl_refresh" = "Rafraîchir";
 "lbl_title_preview" = "Chaînes trouvées :";
-"lbl_folder_help" = "Votre dossier doit contenir des dossier “.lproj“ et des fichiers “.m“ ";
+"lbl_folder_help" = "Votre dossier de projet doit contenir des sous-dossiers “.lproj“ et des fichiers “.m“ ";
 
 "choose_output_directory" = "Choisissez un dossier de sortie";
 "job_done" = "Terminé!";
 
+"err_title" = "Erreur";
 "err_file_type" = "Merci de fournir un fichier type CSV";
 "err_unable_creating_files" = "Impossible de créer le fichier. Vérifier le chemin de sortie.";
+"err_unable_opening_file" = "Impossible d'ouvrir le fichier.";
+"files" = "fichiers";
 
 "lbl_yes" = "Oui";
 "lbl_no" = "Non";

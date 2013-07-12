@@ -56,7 +56,7 @@
 	// Insert code here to initialize your application
 	dropBox.delegate = self;
 	dropBoxFolder.delegate = self;
-	[window setDelegate:self]; 
+	[window setDelegate:self];
 	
 	[self.dropBox setTitle:NSLocalizedString(@"lbl_drop_here", @"")];
 	[self.pathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_path", @"")];
@@ -70,22 +70,21 @@
 	[self.chooseFolderButton setTitleWithMnemonic:NSLocalizedString(@"choose_output_directory", @"")];
 	[self.generateButton setTitleWithMnemonic:NSLocalizedString(@"lbl_generate", @"")];
 	[self.generateButton setEnabled:NO];
-    
-    [self.dropBoxFolder setTitle:NSLocalizedString(@"lbl_drop_folder_here", @"")];
+	
+	[self.dropBoxFolder setTitle:NSLocalizedString(@"lbl_drop_folder_here", @"")];
 	[self.folderPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_folder_path", @"")];
 	[self.stringsPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_strings_path", @"")];
 	[self.languagesPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_found_lg", @"")];
 	[self.folderPathNameTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_folder_path", @"")];
 	[self.previewDataButton setTitleWithMnemonic:NSLocalizedString(@"lbl_refresh", @"")];
-    [self.previewDataButton setEnabled:NO];
+	[self.previewDataButton setEnabled:NO];
 	[self.exportDataButton setTitleWithMnemonic:NSLocalizedString(@"lbl_export", @"")];
-    [self.exportDataButton setEnabled:NO];
+	[self.exportDataButton setEnabled:NO];
 	[self.tableViewTitleTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_title_preview", @"")];
 	[self.folderHelpTextField setTitleWithMnemonic:NSLocalizedString(@"lbl_folder_help", @"")];
-    
-    NSLog(@"[[self.mainTabView tabViewItems] objectAtIndex:0] = %@", [[self.mainTabView tabViewItems] objectAtIndex:0]);
-    [[[self.mainTabView tabViewItems] objectAtIndex:0] setLabel:NSLocalizedString(@"tab_title_strings", @"")];
-    [[[self.mainTabView tabViewItems] objectAtIndex:1] setLabel:NSLocalizedString(@"tab_title_csv", @"")];
+	
+	[[[self.mainTabView tabViewItems] objectAtIndex:0] setLabel:NSLocalizedString(@"tab_title_strings", @"")];
+	[[[self.mainTabView tabViewItems] objectAtIndex:1] setLabel:NSLocalizedString(@"tab_title_csv", @"")];
 }
 
 
@@ -98,39 +97,39 @@
 
 - (void)dealloc {
 	[window release];
-    
-    [dropBox release];
-    [pathNameTextField release];
-    [pathValueTextField release];
-    [sizeNameLabel release];
-    [sizeValueLabel release];
-    [nbRowsNameLabel release];
-    [nbRowsValueLabel release];
-    [nbLanguagesNameLabel release];
-    [nbLanguagesValueLabel release];
-    [outputDirectoryLabel release];
-    [parseCommentCheckBox release];
-    [createFoldersCheckBox release];
-    [parseCommentLabel release];
-    [createFoldersLabel release];
-    [generateButton release];
-    [chooseFolderButton release];
-    [dropBoxFolder release];
-    [folderPathNameTextField release];
-    [folderPathValueTextField release];
-    [previewTableView release];
-    [foundOccurrences release];
-    [allStrings release];
-    [foundLanguages release];
-    [previewDataButton release];
-    [exportDataButton release];
-    [stringsPathNameTextField release];
-    [stringsPathValueTextField release];
-    [languagesPathNameTextField release];
-    [languagesPathValueTextField release];
-    [tableViewTitleTextField release];
-    [folderHelpTextField release];
-
+	
+	[dropBox release];
+	[pathNameTextField release];
+	[pathValueTextField release];
+	[sizeNameLabel release];
+	[sizeValueLabel release];
+	[nbRowsNameLabel release];
+	[nbRowsValueLabel release];
+	[nbLanguagesNameLabel release];
+	[nbLanguagesValueLabel release];
+	[outputDirectoryLabel release];
+	[parseCommentCheckBox release];
+	[createFoldersCheckBox release];
+	[parseCommentLabel release];
+	[createFoldersLabel release];
+	[generateButton release];
+	[chooseFolderButton release];
+	[dropBoxFolder release];
+	[folderPathNameTextField release];
+	[folderPathValueTextField release];
+	[previewTableView release];
+	[foundOccurrences release];
+	[allStrings release];
+	[foundLanguages release];
+	[previewDataButton release];
+	[exportDataButton release];
+	[stringsPathNameTextField release];
+	[stringsPathValueTextField release];
+	[languagesPathNameTextField release];
+	[languagesPathValueTextField release];
+	[tableViewTitleTextField release];
+	[folderHelpTextField release];
+	
 	[super dealloc];
 }
 
@@ -146,7 +145,7 @@
 
 
 - (void)findImplementationFiles:(NSString *)path
-{	
+{
 	if (mFiles) {
 		[mFiles release];
 	}
@@ -157,81 +156,63 @@
 	foundLanguages = [[NSMutableSet alloc] initWithCapacity:0];
 	
 	NSString *docsDir = path;
-    stringsFound = NO;
-    stringsPath = @"";
-	/*while ((file = [dirEnum nextObject]))
+	stringsFound = NO;
+	stringsPath = @"";
+	
+	NSMutableSet *contents = [[[NSMutableSet alloc] init] autorelease];
+	NSFileManager *fm = [NSFileManager defaultManager];
+	BOOL isDir;
+	if (docsDir && ([fm fileExistsAtPath:docsDir isDirectory:&isDir] && isDir))
 	{
+		if (![docsDir hasSuffix:@"/"])
+		{
+			docsDir = [docsDir stringByAppendingString:@"/"];
+		}
+		
+		// this walks the |docsDir| recurisively and adds the paths to the |contents| set
+		NSDirectoryEnumerator *de = [fm enumeratorAtPath:docsDir];
+		NSString *f;
+		NSString *fqn;
+		while ((f = [de nextObject]))
+		{
+			// make the filename |f| a fully qualifed filename
+			fqn = [docsDir stringByAppendingString:f];
+			if ([fm fileExistsAtPath:fqn isDirectory:&isDir] && isDir)
+			{
+				// append a / to the end of all docsDirectory entries
+				fqn = [fqn stringByAppendingString:@"/"];
+			}
+			[contents addObject:fqn];
+		}
+	}
+	else
+	{
+		NSLog(@"%s must be docsDirectory and must exist\n", [docsDir UTF8String]);
+		
+	}
+	
+	for (NSString *file in contents)
+	{
+		
 		if ([[file pathExtension] isEqualToString: @"m"])
 		{
-			[mFiles addObject:[NSString stringWithFormat:@"%@/%@", path, file]];
-		}
-		if ([[file pathExtension] isEqualToString: @"lproj"])
-		{
-            [foundLanguages addObject:[[file lastPathComponent] stringByDeletingPathExtension]];
-		}
-		if ([[file lastPathComponent] isEqualToString: @"Localizable.strings"])
-		{
-            stringsFound = YES;
-            stringsPath = [path stringByAppendingFormat:@"/%@", file];
-		}
-	}*/
-    
-    NSMutableSet *contents = [[[NSMutableSet alloc] init] autorelease];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    BOOL isDir;
-    if (docsDir && ([fm fileExistsAtPath:docsDir isDirectory:&isDir] && isDir))
-    {
-        if (![docsDir hasSuffix:@"/"]) 
-        {
-            docsDir = [docsDir stringByAppendingString:@"/"];
-        }
-        
-        // this walks the |docsDir| recurisively and adds the paths to the |contents| set
-        NSDirectoryEnumerator *de = [fm enumeratorAtPath:docsDir];
-        NSString *f;
-        NSString *fqn;
-        while ((f = [de nextObject]))
-        {
-            // make the filename |f| a fully qualifed filename
-            fqn = [docsDir stringByAppendingString:f];
-            if ([fm fileExistsAtPath:fqn isDirectory:&isDir] && isDir)
-            {
-                // append a / to the end of all docsDirectory entries
-                fqn = [fqn stringByAppendingString:@"/"];
-            }
-            [contents addObject:fqn];
-        }
-    }
-    else
-    {
-        NSLog(@"%s must be docsDirectory and must exist\n", [docsDir UTF8String]);
-        
-    }
-    
-    for (NSString *file in contents)
-    {
-        
-		if ([[file pathExtension] isEqualToString: @"m"])
-		{
-            NSLog(@"file = %@", file);
 			[mFiles addObject:file];
 		}
 		if ([[file pathExtension] isEqualToString: @"lproj"])
 		{
-            NSLog(@"[file stringByDeletingPathExtension] = %@", [file stringByDeletingPathExtension]);
-            NSLog(@"last = %@", [[[file stringByDeletingPathExtension] componentsSeparatedByString:@"/"] lastObject]);
-            [foundLanguages addObject:[[[file stringByDeletingPathExtension] componentsSeparatedByString:@"/"] lastObject]];
+			NSString *stringsFilePath = [NSString stringWithFormat:@"%@Localizable.strings", file];
+			if ([fm fileExistsAtPath:stringsFilePath])
+			{
+				[foundLanguages addObject:[[[file stringByDeletingPathExtension] componentsSeparatedByString:@"/"] lastObject]];
+				stringsFound = YES;
+				stringsPath = stringsFilePath;
+			}
 		}
-		if ([[file lastPathComponent] isEqualToString: @"Localizable.strings"])
-		{
-            stringsFound = YES;
-            stringsPath = file;
-		}
-    }   
-    NSLog(@"foundLanguages = %@", foundLanguages);
-    
+	}
+	NSLog(@"foundLanguages = %@", foundLanguages);
+	
 	[languagesPathValueTextField setTitleWithMnemonic:[[foundLanguages allObjects] componentsJoinedByString:@", "]];
-    [stringsPathValueTextField setTitleWithMnemonic:stringsPath];
+	[stringsPathValueTextField setTitleWithMnemonic:stringsPath];
 	[self parseImplementationFiles];
 }
 
@@ -247,71 +228,97 @@
 	allStrings = [[NSMutableDictionary alloc] initWithCapacity:0];
 	
 	NSString *fileContent = @"";
-    NSError *error = nil;
-
-    for (NSString *l in foundLanguages)
-    {
-        fileContent = [NSString stringWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.lproj/Localizable.strings", [[stringsPath stringByDeletingLastPathComponent] stringByDeletingLastPathComponent], l] encoding:NSUTF8StringEncoding error:&error];
-        
-        if (error) {
-            NSLog(@"error = %@", error);
-        }
-    
-        NSString *regexString = @"\"([^\"]+)\" = \"([^\"]+)\";";
-        for(NSString *match in [fileContent componentsMatchedByRegex:regexString])
-        {
-            NSArray *c = [match componentsSeparatedByString:@"\""];
-            if( [allStrings objectForKey:[c objectAtIndex:1]] )
-            {
-                NSMutableDictionary *currentDictionnary = [allStrings objectForKey:[c objectAtIndex:1]];
-                [currentDictionnary addEntriesFromDictionary:[NSDictionary dictionaryWithObject:[c objectAtIndex:3] forKey:l]];
-                [allStrings setObject:currentDictionnary forKey:[c objectAtIndex:1]];
-            }
-            else
-                [allStrings setObject:[NSMutableDictionary dictionaryWithObject:[c objectAtIndex:3] forKey:l] forKey:[c objectAtIndex:1]];
-            
-        }
-    }
-    NSLog(@"allStrings = %@", allStrings);
-    
-    [[ac mutableArrayValueForKey:@"content"] removeAllObjects];
-    
+	NSError *error = nil;
 	NSFileManager *fileManager = [NSFileManager defaultManager];
+	
+	for (NSString *l in foundLanguages)
+	{
+		NSString *filePath = [NSString stringWithFormat:@"%@/%@.lproj/Localizable.strings", [[stringsPath stringByDeletingLastPathComponent] stringByDeletingLastPathComponent], l];
+		NSStringEncoding encoding;
+		fileContent = [NSString stringWithContentsOfFile:filePath usedEncoding:&encoding error:&error];
+
+		if (![fileManager fileExistsAtPath:filePath])
+		{
+			NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+			[alert addButtonWithTitle:@"OK"];
+			[alert setInformativeText: [NSString stringWithFormat:@"%@ %@.lproj/Localizable.strings", NSLocalizedString(@"err_unable_opening_file", @""), l]];
+			[alert setAlertStyle:NSWarningAlertStyle];
+			[alert runModal];
+			
+			NSLog(@"error opening file = %@", filePath);
+		}
+		
+		if (error || ![fileManager fileExistsAtPath:filePath])
+		{
+			NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+			[alert addButtonWithTitle:@"OK"];
+			[alert setInformativeText: [NSString stringWithFormat:@"%@ %@.lproj/Localizable.strings\n%@", NSLocalizedString(@"err_unable_opening_file", @""), l, [error localizedDescription]]];
+			[alert setAlertStyle:NSWarningAlertStyle];
+			[alert runModal];
+			NSLog(@"error = %@", error);
+		}
+		
+		NSString *regexString = @"\"([^\"]+)\" = \"([^\"]+)\";";
+		for(NSString *match in [fileContent componentsMatchedByRegex:regexString])
+		{
+			NSArray *c = [match componentsSeparatedByString:@"\""];
+			if( [allStrings objectForKey:[c objectAtIndex:1]] )
+			{
+				NSMutableDictionary *currentDictionnary = [allStrings objectForKey:[c objectAtIndex:1]];
+				[currentDictionnary addEntriesFromDictionary:[NSDictionary dictionaryWithObject:[c objectAtIndex:3] forKey:l]];
+				[allStrings setObject:currentDictionnary forKey:[c objectAtIndex:1]];
+			}
+			else
+				[allStrings setObject:[NSMutableDictionary dictionaryWithObject:[c objectAtIndex:3] forKey:l] forKey:[c objectAtIndex:1]];
+			
+		}
+	}
+	
+	[[ac mutableArrayValueForKey:@"content"] removeAllObjects];
+	
 	for (NSString *file in mFiles)
 	{
 		NSString *contents = [[NSString alloc] initWithData:[fileManager contentsAtPath:file] encoding:NSUTF8StringEncoding];
 		NSString *regexString     = @"NSLocalizedString\\(\\s?([^\\)]+)\\s?\\)";
-        
-        NSArray *matches = [contents componentsMatchedByRegex:regexString];
+      
+		NSArray *matches = [contents componentsMatchedByRegex:regexString];
 		for(NSString *match in matches) {
 			NSArray *c = [match componentsSeparatedByString:@"\""];
-			NSLog(@"c = %@", c);
 			NSString *keyString = [c objectAtIndex:1];
 			NSString *commentString;
          if([c count] <= 3 )
 				commentString = @"";
 			else
 				commentString = [c objectAtIndex:3];
-			   
-            NSMutableDictionary *dict = [[NSMutableDictionary alloc]  initWithCapacity:0];
-            [dict setObject:keyString forKey:@"key"];
-            [dict setObject:commentString forKey:@"comment"];
-            [dict setObject:file forKey:@"file"];
-            if ([allStrings objectForKey:keyString])
-            {
-                //NSLog(@"keyString = %@", [allStrings objectForKey:keyString]);
-                NSString *value = [[allStrings objectForKey:keyString] objectForKey:[[foundLanguages allObjects] objectAtIndex:0]];
-                if (value) {
-                    [dict setObject:value forKey:@"value"];
-                }
-                [ac addObject:dict];
-            }
-            else
-            {
-                NSLog(@" not found %@ ", keyString);
-            }
-            [dict release];
-		}		
+			
+			NSMutableDictionary *dict = [[NSMutableDictionary alloc]  initWithCapacity:0];
+			[dict setObject:keyString forKey:@"key"];
+			[dict setObject:commentString forKey:@"comment"];
+			[dict setObject:file forKey:@"file"];
+			if ([allStrings objectForKey:keyString])
+			{
+				//NSLog(@"keyString = %@", [allStrings objectForKey:keyString]);
+				NSString *value = [[allStrings objectForKey:keyString] objectForKey:[[foundLanguages allObjects] objectAtIndex:0]];
+				if (value) {
+					[dict setObject:value forKey:@"value"];
+				}
+				[ac addObject:dict];
+			}
+			else
+			{
+				NSLog(@" not found %@ ", keyString);
+			}
+			[dict release];
+		}
+	}
+	NSCountedSet *uniqueElements = [NSCountedSet setWithArray:[ac arrangedObjects]];
+	[ac removeObjects:[ac arrangedObjects]];
+	for(NSMutableDictionary *element in uniqueElements)
+	{
+		unsigned long c = [uniqueElements countForObject:element];
+		if(c > 1)
+			[element setObject:[NSString stringWithFormat:@"%ld %@", c, NSLocalizedString(@"files", @"")] forKey:@"file"];
+		[ac addObject:element];
 	}
 	[self previewData];
 }
@@ -328,56 +335,56 @@
 
 - (IBAction)exportCSV:(id)sender;
 {
-    
-    NSMutableString *exportString = [[NSMutableString alloc] initWithString:@""];
-    for (NSString *l in foundLanguages)
-    {
-        [exportString appendFormat:@";%@", l];
-    }
-    [exportString appendString:@"\n"];
-    for (NSDictionary *d in [ac arrangedObjects])
-    {
-        if (![[d objectForKey:@"key"] isEqualToString:@""]) {
-            [exportString appendFormat:@"// %@ in %@\n", [d objectForKey:@"comment"], [d objectForKey:@"file"]];
-        }
-        NSString *key = [d objectForKey:@"key"];
-        [exportString appendString:key];
-        for (NSString *l in foundLanguages)
-        {
-            [exportString appendFormat:@";%@", [[allStrings objectForKey:key] objectForKey:l]];
-        }
-        [exportString appendString:@"\n"];        
-    }
-    //save panel
-    [self exportDocument:@"export" toType:@"public.comma-separated-values-text" content:exportString];
-    [exportString release];
+	
+	NSMutableString *exportString = [[NSMutableString alloc] initWithString:@""];
+	for (NSString *l in foundLanguages)
+	{
+		[exportString appendFormat:@";%@", l];
+	}
+	[exportString appendString:@"\n"];
+	for (NSDictionary *d in [ac arrangedObjects])
+	{
+		if (![[d objectForKey:@"key"] isEqualToString:@""]) {
+			[exportString appendFormat:@"// %@ in %@\n", [d objectForKey:@"comment"], [d objectForKey:@"file"]];
+		}
+		NSString *key = [d objectForKey:@"key"];
+		[exportString appendString:key];
+		for (NSString *l in foundLanguages)
+		{
+			[exportString appendFormat:@";%@", [[allStrings objectForKey:key] objectForKey:l]];
+		}
+		[exportString appendString:@"\n"];
+	}
+	//save panel
+	[self exportDocument:@"export" toType:@"public.comma-separated-values-text" content:exportString];
+	[exportString release];
 }
 
 
 - (void)exportDocument:(NSString*)name toType:(NSString*)typeUTI content:(NSString *)exportString
 {
-    // Build a new name for the file using the current name and
-    // the filename extension associated with the specified UTI.
-    CFStringRef newExtension = UTTypeCopyPreferredTagWithClass((CFStringRef)typeUTI,
-                                                               kUTTagClassFilenameExtension);
-    NSString* newName = [[name stringByDeletingPathExtension]
-                         stringByAppendingPathExtension:(NSString*)newExtension];
-    CFRelease(newExtension);
-    
-    // Set the default name for the file and show the panel.
-    NSSavePanel*    panel = [NSSavePanel savePanel];
-    [panel setNameFieldStringValue:newName];
-    [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result){
-        if (result == NSFileHandlingPanelOKButton)
-        {
-            NSError *error = nil;
-            NSURL*  theFile = [panel URL];
-            [exportString writeToURL:theFile atomically:NO encoding:NSUTF8StringEncoding error:&error];
-            if (error) {
-                NSLog(@"error = %@", error);
-            }
-        }
-    }];
+	// Build a new name for the file using the current name and
+	// the filename extension associated with the specified UTI.
+	CFStringRef newExtension = UTTypeCopyPreferredTagWithClass((CFStringRef)typeUTI,
+																				  kUTTagClassFilenameExtension);
+	NSString* newName = [[name stringByDeletingPathExtension]
+								stringByAppendingPathExtension:(NSString*)newExtension];
+	CFRelease(newExtension);
+	
+	// Set the default name for the file and show the panel.
+	NSSavePanel*    panel = [NSSavePanel savePanel];
+	[panel setNameFieldStringValue:newName];
+	[panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result){
+		if (result == NSFileHandlingPanelOKButton)
+		{
+			NSError *error = nil;
+			NSURL*  theFile = [panel URL];
+			[exportString writeToURL:theFile atomically:NO encoding:NSUTF8StringEncoding error:&error];
+			if (error) {
+				NSLog(@"error = %@", error);
+			}
+		}
+	}];
 }
 
 
@@ -397,13 +404,13 @@
 	if (rowsOfCSV) {
 		[rowsOfCSV release];
 	}
-	rowsOfCSV = [[NSArray arrayWithContentsOfCSVFile:dropBox.capturedPath usedEncoding:&encoding error:&error] retain];	
+	rowsOfCSV = [[NSArray arrayWithContentsOfCSVFile:dropBox.capturedPath usedEncoding:&encoding error:&error] retain];
 	
 	[self.nbRowsValueLabel setTitleWithMnemonic:[NSString stringWithFormat:@"%ld", [rowsOfCSV count] ]];
 	
 	if ([rowsOfCSV count] > 0)
 	{
-		// Headers 
+		// Headers
 		[self.nbLanguagesValueLabel setTitleWithMnemonic:[NSString stringWithFormat:@"%ld", ([[rowsOfCSV objectAtIndex:0] count]-1)]];
 	}
 	NSLog(@"error: %@", error);
@@ -415,12 +422,12 @@
 {
 	int result;
 	NSArray *fileTypes = [NSArray arrayWithObjects: @"txt", @"csv",
-                          NSFileTypeForHFSTypeCode( 'TEXT' ), nil];
+								 NSFileTypeForHFSTypeCode( 'TEXT' ), nil];
 	NSOpenPanel *oPanel = [NSOpenPanel openPanel];
 	
 	[oPanel setAllowsMultipleSelection:YES];
 	result = [oPanel runModal];
-    [oPanel setAllowedFileTypes:fileTypes];
+	[oPanel setAllowedFileTypes:fileTypes];
 	if (result == NSOKButton) {
 		NSArray *filesToOpen = [oPanel URLs];
 		int i, count = [filesToOpen count];
@@ -446,7 +453,7 @@
 	
 	if (result == NSOKButton)
 	{
-        NSURL *urlSelected = [[oPanel URLs] lastObject];
+		NSURL *urlSelected = [[oPanel URLs] lastObject];
 		outputDirectoryPath = [[urlSelected path] retain];
 		[self.outputDirectoryLabel setTitleWithMnemonic:[urlSelected path]];
 	}
@@ -466,7 +473,7 @@
 	
 	if (nbRows > 0)
 	{
-		// Headers 
+		// Headers
 		NSArray *headerRows = [NSArray arrayWithArray:[rowsOfCSV objectAtIndex:0]];
 		double nbHeaderFields = [headerRows count];
 		
@@ -512,7 +519,7 @@
 							{
 								NSLog(@"No data for row");
 							}
-						}	
+						}
 					}
 					[row release];
 				}
@@ -534,7 +541,7 @@
 				}
 			}
 		}
-	}	
+	}
 	
 	if (error)
 	{
@@ -551,13 +558,13 @@
 		NSAlert *alert = [[[NSAlert alloc] init] autorelease];
 		[alert addButtonWithTitle:@"OK"];
 		[alert setMessageText:NSLocalizedString(@"job_done", @"")];
-		[alert setInformativeText:[NSString stringWithFormat:@"%@ : %d\n%@ : %d\n%@ : %d\n", 
-                                   NSLocalizedString(@"lbl_nb_vars", @""),
-                                   nbVars,
-                                   NSLocalizedString(@"lbl_nb_comments", @""),
-                                   nbComments,
-                                   NSLocalizedString(@"lbl_nb_languages", @""),
-                                   nbLocales]];
+		[alert setInformativeText:[NSString stringWithFormat:@"%@ : %d\n%@ : %d\n%@ : %d\n",
+											NSLocalizedString(@"lbl_nb_vars", @""),
+											nbVars,
+											NSLocalizedString(@"lbl_nb_comments", @""),
+											nbComments,
+											NSLocalizedString(@"lbl_nb_languages", @""),
+											nbLocales]];
 		[alert setAlertStyle:NSWarningAlertStyle];
 		[alert runModal];
 	}
@@ -581,7 +588,7 @@
 	[alert setMessageText:NSLocalizedString(@"err_title", @"") ];
 	[alert setInformativeText:message];
 	[alert setAlertStyle:NSWarningAlertStyle];
-	[alert runModal];	
+	[alert runModal];
 }
 
 - (void)showCSVInfo
@@ -638,18 +645,18 @@
 	{
 		[self.pathValueTextField setTitleWithMnemonic:aDropBox.capturedPath];
 		
-		NSFileManager *filemgr = [NSFileManager defaultManager];	
+		NSFileManager *filemgr = [NSFileManager defaultManager];
 		NSError *error;
 		NSDictionary *attributes = [filemgr attributesOfItemAtPath:aDropBox.capturedPath error:&error];
 		
 		
 		[self.sizeValueLabel setTitleWithMnemonic:[JDUtils getHumanReadableSize:[[attributes objectForKey:NSFileSize] floatValue]]];
 		
-        //NSWorkspace *ws = [NSWorkspace sharedWorkspace];
-        //NSLog(@"attr = %@", [ws typeOfFile:aDropBox.capturedPath error:nil]);
+		//NSWorkspace *ws = [NSWorkspace sharedWorkspace];
+		//NSLog(@"attr = %@", [ws typeOfFile:aDropBox.capturedPath error:nil]);
 		// //public.comma-separated-values-text
-        
-        if ([[dropBox.capturedPath pathExtension] isEqualToString:@"csv"])
+		
+		if ([[dropBox.capturedPath pathExtension] isEqualToString:@"csv"])
 		{
 			[generateButton setEnabled:YES];
 			[self showCSVInfo];
@@ -661,17 +668,17 @@
 	else if (aDropBox == dropBoxFolder)
 	{
 		[self.folderPathValueTextField setTitleWithMnemonic:aDropBox.capturedPath];
-        NSFileManager *filemgr = [NSFileManager defaultManager];	
+		NSFileManager *filemgr = [NSFileManager defaultManager];
 		NSDictionary *attr = [filemgr attributesOfItemAtPath:aDropBox.capturedPath error:nil];
-        if( ![[attr objectForKey:NSFileType] isEqualToString:NSFileTypeDirectory])
-        {
-            NSLog(@"%@ must be a directory and must exist\n", aDropBox.capturedPath);
-            return;
-        }
-        [self findImplementationFiles:aDropBox.capturedPath];
-        [self.previewDataButton setEnabled:YES];
-        [self.exportDataButton setEnabled:YES];
-        [self showFolderInfo];
+		if( ![[attr objectForKey:NSFileType] isEqualToString:NSFileTypeDirectory])
+		{
+			NSLog(@"%@ must be a directory and must exist\n", aDropBox.capturedPath);
+			return;
+		}
+		[self findImplementationFiles:aDropBox.capturedPath];
+		[self.previewDataButton setEnabled:YES];
+		[self.exportDataButton setEnabled:YES];
+		[self showFolderInfo];
 	}
 }
 

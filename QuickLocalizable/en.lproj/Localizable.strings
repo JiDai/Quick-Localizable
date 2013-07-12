@@ -29,13 +29,16 @@
 "lbl_export" = "Export";
 "lbl_refresh" = "Refresh";
 "lbl_title_preview" = "Found strings :";
-"lbl_folder_help" = "Your folder must contains “lproj“ folders and “.m“ files";
+"lbl_folder_help" = "Your project folder must contains “lproj“ folders and “.m“ files";
 
 "choose_output_directory" = "Choose output folder";
 "job_done" = "Job done!";
 
+"err_title" = "Error";
 "err_file_type" = "Please specify a CSV file";
 "err_unable_creating_files" = "Unable to create files. Check the output path.";
+"err_unable_opening_file" = "Unable to open files.";
+"files" = "files";
 
 "lbl_yes" = "Yes";
 "lbl_no" = "No";
